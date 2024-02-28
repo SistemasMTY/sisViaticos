@@ -159,6 +159,11 @@
                 <ul class="treeview-menu">
                   <li><a href="{{url('reports/reportes')}}"><i class="fa fa-circle-o"></i> Folios Mensuales</a></li>
                 </ul>
+                @if(Auth::user()->id == 75 OR Auth::user()->id == 1195)
+                <ul class="treeview-menu">
+                  <li><a href="{{url('reports/comprobacionesRetrasos')}}"><i class="fa fa-circle-o"></i> Comprobaciones retrasadas</a></li>
+                </ul>
+                @endif
               </li>
             @if(Auth::user()->id == 1 OR Auth::user()->id == 7 OR Auth::user()->id == 9 OR Auth::user()->id == 1195)
               <li class="treeview">

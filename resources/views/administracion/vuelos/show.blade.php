@@ -121,6 +121,8 @@
 								<option value="Jo Nagase">Jo Nagase</option>
 								<option value="Takehiko Gomi">Takehiko Gomi</option>
 								<option value="Kazuk iUehara">Kazuki Uehara</option>
+								<option value="Hector Oki">Hector Oki</option>
+								<option value="Nomura Tatsuya">Nomura Tatsuya</option>
 							</select>				
 						</div>
 					</div>

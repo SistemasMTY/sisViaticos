@@ -57,20 +57,10 @@ class FlightsController extends Controller
             }
 
             // Informacion para planta MTY
-            if(Auth::user()->id==4 || Auth::user()->id==5 || Auth::user()->id==1195){
-                $query=trim($request->get('searchText'));
-                $folios=DB::table('VIEW_SSM_FLIGHTS_NO')
-                ->select('id_header_folio as folio','NombreCompleto as name','compania as company','fecha','tipo','destino','criterio', 'fecha_salida', 'fecha_llegada')
-                ->where('compania','=','MTY')
-	            ->where('NombreCompleto','LIKE','%'.$query.'%')
-                ->orwhere('id_header_folio','LIKE','%'.$query.'%')
-                ->whereIn('compania',['QRO', 'QRO,SLM', 'QRO,SLM,MTY']) #Pendiente de Revisar
-	            ->orderBy('id_header_folio','desc')
-	            ->paginate(7);	  
-            }
+           
 
             // Info para admins
-            if(Auth::user()->id==2321|| Auth::user()->id==5 || Auth::user()->id==1195){
+            if(Auth::user()->id==2321|| Auth::user()->id==5 ){
                 $query=trim($request->get('searchText'));
                 $folios=DB::table('VIEW_SSM_FLIGHTS_NO')
                 ->select('id_header_folio as folio','NombreCompleto as name','compania as company','fecha','tipo','destino','criterio', 'fecha_salida', 'fecha_llegada')

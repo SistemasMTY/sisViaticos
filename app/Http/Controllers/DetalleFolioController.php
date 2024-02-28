@@ -378,7 +378,7 @@ class DetalleFolioController extends Controller
                         }    
                     }
                     else{
-                        Session()->flash('msg','Ocurrio un error al cargar la factura');                                
+                        Session()->flash('msg','Ocurrio un error al cargar la factura, Favor de validar que se encuentre en el portal de proveedores: http://www.summitmx.com/proveedores/');                                
                         return redirect()->action('DetalleFolioController@show', [$folio->id_header_folio]);
                     }
                 }

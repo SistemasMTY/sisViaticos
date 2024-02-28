@@ -1,56 +1,51 @@
 @extends ('layout.admin')
-@section ('contenido')
-<title>Reporte de gastos de viaje Totales </title>
+@section('contenido')
 <link rel="stylesheet" href="{{asset('DataTables\DataTables-1.10.18\css\dataTables.bootstrap4.min.css')}}">
 <link rel="stylesheet" href="{{asset('DataTables\Buttons-1.5.6\css\buttons.bootstrap4.min.css')}}">
 
 <div class="row">
-	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-		<h3>Reporte de gastos de viaje Totales </h3>
-	
-	</div>
+	<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+		<h3>
+			Folios con retraso de comprobacion
+		</h3>	
+	</div>		
 </div>
-@include('accounting.validados.searchr')
-<div class="row">	
+
+<br>
+<div class="row">		
 	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 		<div class="table-responsive">
-			<table id="datatable1" class="table table-striped table-bordered table-condensed table-hover">
+			<table id="datatable1" class="table table-striped table-bordered table-condensed table-hover">				
 				<thead>
-					<tr>
-						<th>NOMBRE</th>
-						<th>NO. DE EMPLEADO</th>
-						<th>FECHA</th>
-						<th>Suma de TOTAL EXCENTO</th>
-						<th>Suma de TOTAL GRAVADO</th>
-						<th>Suma de TOTAL</th>
-					</tr>
-            	</thead>
-				<tfoot>
-					<th>TOTAL GENERAL </th>			
-					<th></th>
-					<th></th>
-					<th><h4 id="total">{{number_format($suma->total,2)}}</h4><input type="hidden" name="total_venta" id="total_venta"></th>
-					<th><h4 id="total">{{number_format($suma1->total,2)}}</h4><input type="hidden" name="total_venta" id="total_venta"></th>
-					<th><h4 id="total">{{number_format($suma2->total,2)}}</h4><input type="hidden" name="total_venta" id="total_venta"></th>
-				</tfoot>
-				<tbody>
-				@foreach($totales as $total)
-            	<tr>	
-                	<td>{{$total->NombreCompleto}}</td>
-				  	<td>{{$total->TrabajadorID}}</td>
-				  	<td>{{$total->fecha_salida}}</td>
-				  	<td>{{$total->Dtotal}}</td>
-				  	<td>{{$total->Ttotal}}</td>
-				  	<td>{{$total->Totales}}</td>
-                </tr>
-				@endforeach	
+					<th>Folio</th>
+					<th>Nombre </th>
+                    <th>Status actual</th>                    
+					<th>Fecha llegada viaje</th>
+					<th>Fecha comprobacion realizada</th>
+					<th>Dias retraso</th>
+				</thead>
+				@foreach ($folio as $fol)
+				<tr>					
+					<td>{{ $fol->id_header_folio }}</td>
+					<td>{{ $fol->name }}</td>
+                    <td>{{ $fol->Status }}</td>                    
+					<td>{{ $fol->fecha_llegada }}</td>
+					<td>{{ $fol->gasto }}</td>
+					<td>{{ $fol->Retraso }}</td> 
+				</tr>					
+				@endforeach
 			</table>
+		</div>			
+	</div>
+	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+		<div class="form-group">
+
+			<a href="{{ url('reports/comprobacionesRetrasos')}}" class="btn btn-danger"><i class="fa fa-chevron-left" aria-hidden="true"></i> Atras</a>
+
 		</div>
-		<a href="{{ url('accounting/validados')}}" class="btn btn-danger">Atras</a>
 	</div>
 </div>
 @endsection
-
 <!--SCRIPTS PARA BOTONES -->
 
 <script src="{{asset('DataTables\jQuery-3.3.1\jquery-3.3.1.js')}}"></script>
@@ -73,10 +68,11 @@ $(document).ready(function() {
 	
 		dom: 'Bfrtip',
 		bAutoWidth: false,
-		"order": [[ 3, "asc" ]],
-		lengthChange: false,
-		"searching": false,
-		"info": false,
+		// "order": [[ 3, "asc" ]],
+		"fnInfoCallback": function( oSettings, iStart, iEnd, iMax, iTotal, sPre ) {
+			return "Mostrando registros del " + iStart +" al "+ iEnd + " (de un total de "+ iTotal +")";
+		},
+		"pageLength": 15,
 		"language": {
     	"paginate": {
       		"next": ">",
@@ -91,7 +87,7 @@ $(document).ready(function() {
 		footer: true,
 		autoFilter: false,
 		extension: '.xlsx',
-		filename: 'Reporte de gastos de viaje ',
+		filename: 'Reporte retraso por usuario ',
 		
         },
 		{
@@ -99,7 +95,7 @@ $(document).ready(function() {
         title: null,
 		className: 'btn btn-success',
 		footer: true,
-		filename: 'Reporte de gastos de viaje ',
+		filename: 'Reporte retraso por usuario ',
 	
         }    
     ]

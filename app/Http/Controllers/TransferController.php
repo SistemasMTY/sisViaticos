@@ -76,7 +76,7 @@ class TransferController extends Controller
         $folio=DB::table('ssm_viat_header_folio as f')
         ->join('users as u','f.id_solicitante','=','u.id')
         ->join('ssm_viat_moneda as m','f.id_moneda','=','m.id_moneda')
-        ->select('f.id_header_folio','f.fecha','f.id_solicitante','f.id_status','u.name','u.numeroNom','u.company','u.id','tipo','f.destino','f.proposito','f.fecha_salida','f.fecha_llegada','f.dias','criterio','m.moneda','f.anticipo','f.all_total')
+        ->select('f.id_header_folio','f.fecha','f.id_solicitante','f.id_status','u.name','u.numeroNom', 'u.numeroNomActual', 'u.company','u.id','tipo','f.destino','f.proposito','f.fecha_salida','f.fecha_llegada','f.dias','criterio','m.moneda','f.anticipo','f.all_total')
         ->where('f.id_header_folio','=',$id)
         ->first();
 
@@ -84,13 +84,13 @@ class TransferController extends Controller
         ->join('users as u','f.id_solicitante','=','u.id')
         ->join('ssm_viat_moneda as m','f.id_moneda','=','m.id_moneda')
         ->leftJoin('ssm_viat_tc_cambio as t','t.id_header_folio','=','f.id_header_folio')
-        ->select('f.id_header_folio','f.fecha','f.id_solicitante','t.montopesos','f.id_status','u.name','u.id', 'u.numeroNom', 'u.company','tipo','f.destino','f.proposito','f.fecha_salida','f.fecha_llegada','f.dias','criterio','m.moneda','f.anticipo','f.all_total')
+        ->select('f.id_header_folio','f.fecha','f.id_solicitante','t.montopesos','f.id_status','u.name','u.id', 'u.numeroNom', 'u.numeroNomActual', 'u.company','tipo','f.destino','f.proposito','f.fecha_salida','f.fecha_llegada','f.dias','criterio','m.moneda','f.anticipo','f.all_total')
         ->where('f.id_header_folio','=',$id)
         ->first();
 
         // $profile=DB::table('user_profile')->where('id_user','=',$folio->id_solicitante)->first();
 
-        $profiles=DB::table('VIEW_SSM_INFO_USERS')->where('TrabajadorID','=',$folio->numeroNom)->where('compania','LIKE','%'.$folio->company.'%')->where('NombreCompleto','LIKE','%'.$folio->name.'%')->first();
+        $profiles=DB::table('VIEW_SSM_INFO_USERS')->where('TrabajadorIDM','=',$folio->numeroNomActual)->where('compania','LIKE','%'.$folio->company.'%')->first();
         
         $detalles=DB::table('VIEW_SSM_DETALLE_FOLIO')
         ->select('id_detalle_folio', 'id_header_folio','id_gasto','nomGasto','metodoPago', 'subtotal', 'proveedor', 'RFC', 'noFactura', 'id_cuenta', 'importe', 'IVA', 'otro_impuesto', 'comentarios', 'xml', 'pdf', 'fecha_factura' )

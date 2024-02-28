@@ -31,6 +31,8 @@ Route::resource('administracion/vuelos','FlightsController');
 
 Route::resource('reports/reportes','ReportesMensualesController');
 
+Route::resource('reports/comprobacionesRetrasos','ReportesGastosNoComprobadosController');
+
 Route::resource('accounting/comprobacion','CuentasXPagarController');
 
 Route::resource('accounting/validados','CuentasXPagarValidadosController');
@@ -68,6 +70,8 @@ Route::get('authorizeGet/{token}/token/{id}/folio/{option}', 'ReviewController@g
 Route::get('expensefolio/{id}/{token}', 'ExpenseController@sendcxp')->name('expensefolio');
 
 Route::get('ReporteMensuUsuario/{FechaI}/{FechaF}/{id}/{status}', 'ReportesMensualesController@show')->name('ReporteMensuUsuario');
+
+Route::get('ReportePorUsuario/{id}', 'ReportesGastosNoComprobadosController@show')->name('ReportePorUsuario');
 
 Route::get('reviewExpenseGet/{token}/token/{id}/folio/{option}', 'ExpenseController@getAuto1')->name('reviewExpenseGet/{token}/token/{folio}/folio/{option}');
 #Route::get('reviewExpenseGet/{token}/token/{id}/folio/{option}', 'ExpenseController@sendGerenciaGral')->name('reviewExpenseGet/{token}/token/{folio}/folio/{option}');
