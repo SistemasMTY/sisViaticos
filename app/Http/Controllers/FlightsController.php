@@ -9,7 +9,6 @@ use sisViaticos\User;
 use sisViaticos\Vuelo;
 
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Http;

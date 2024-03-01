@@ -90,9 +90,9 @@ class UserProfileController extends Controller
         //$articulo->stock=$request->get('stock');
         //$articulo->descripcion=$request->get('descripcion');
 
-        //if (input::hasfile('imagen')) {
+        //if ($request->hasfile('imagen')) {
         	# code...
-       // 	$file=input::file('imagen');
+       // 	$file=$request->file('imagen');
        // 	$file->move(public_path().'/imagenes/articulos/',$file->getClientOriginalName());
        // 	$articulo->imagen=$file->getClientOriginalName();
         //}

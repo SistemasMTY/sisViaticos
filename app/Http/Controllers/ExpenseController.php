@@ -13,7 +13,6 @@ use sisViaticos\Moneda;
 use sisViaticos\Status;
 use sisViaticos\User;
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Input;
 use sisViaticos\Http\Requests\FolioFormRequest;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;

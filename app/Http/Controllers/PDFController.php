@@ -8,7 +8,6 @@ use sisViaticos\DetalleFolio;
 use sisViaticos\User;
 use sisViaticos\UserProfile;
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Input;
 use sisViaticos\Http\Requests\FolioFormRequest;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;

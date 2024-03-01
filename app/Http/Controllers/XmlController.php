@@ -10,7 +10,6 @@ use sisViaticos\Moneda;
 use sisViaticos\Status;
 use sisViaticos\User;
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
@@ -64,9 +63,9 @@ class XmlController extends Controller
                 File::makeDirectory($folder, 0775, true);
             }
 
-             if (input::hasfile('xml')) {
+             if ($request->hasfile('xml')) {
         	# code...
-	        	$file=input::file('xml');
+	        	$file=$resquest->file('xml');
 	        	$xml = simplexml_load_file($url);
 	        	$detalle->noFactura=$xml->Folio;
         	}

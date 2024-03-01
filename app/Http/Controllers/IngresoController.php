@@ -8,7 +8,6 @@ use sisViaticos\Http\Requests;
 use sisViaticos\Ingreso;
 use sisViaticos\DetalleIngreso;
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Input;
 use sisViaticos\Http\Requests\IngresoFormRequest;
 use DB;
 

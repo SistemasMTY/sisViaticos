@@ -7,7 +7,6 @@ use sisViaticos\Http\Requests;
 use sisViaticos\Transfer;
 use sisViaticos\Folio;
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Auth;
 
 use Mail;

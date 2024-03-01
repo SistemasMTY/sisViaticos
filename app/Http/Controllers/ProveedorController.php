@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use sisViaticos\Http\Requests;
 use sisViaticos\Persona;
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Input;
 use sisViaticos\Http\Requests\PersonaFormRequest;
 use DB;
 

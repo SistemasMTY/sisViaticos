@@ -9,7 +9,6 @@ use sisViaticos\FirmaAnticipo;
 use sisViaticos\FirmaGasto;
 use sisViaticos\Transfer;
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 

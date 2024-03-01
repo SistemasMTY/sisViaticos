@@ -14,7 +14,6 @@ use sisViaticos\User;
 use sisViaticos\Repayment;
 
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 

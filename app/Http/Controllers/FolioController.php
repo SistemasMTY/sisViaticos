@@ -11,7 +11,6 @@ use sisViaticos\Status;
 use sisViaticos\User;
 use sisViaticos\FirmaAnticipo;
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Auth;
 use sisViaticos\Http\Requests\FolioFormRequest;
 use Illuminate\Support\Str;

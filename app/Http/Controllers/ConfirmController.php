@@ -5,7 +5,6 @@ namespace sisViaticos\Http\Controllers;
 use Illuminate\Http\Request;
 use sisViaticos\Folio;
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Input;
 use sisViaticos\Http\Requests\FolioFormRequest;
 use Illuminate\Support\Str;
 use Mail;

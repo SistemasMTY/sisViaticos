@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use sisViaticos\Http\Requests;
 use sisViaticos\Articulo;
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Input;
 use sisViaticos\Http\Requests\ArticuloFormRequest;
 
 use DB;
@@ -49,9 +48,9 @@ class ArticuloController extends Controller
         $articulo->descripcion=$request->get('descripcion');
         $articulo->estado='Activo';
 
-        if (input::hasfile('imagen')) {
+        if ($request->hasfile('imagen')) {
         	# code...
-        	$file=input::file('imagen');
+        	$file=$request->file('imagen');
         	$file->move(public_path().'/imagenes/articulos/',$file->getClientOriginalName());
         	$articulo->imagen=$file->getClientOriginalName();
         }
@@ -78,9 +77,9 @@ class ArticuloController extends Controller
         $articulo->stock=$request->get('stock');
         $articulo->descripcion=$request->get('descripcion');
 
-        if (input::hasfile('imagen')) {
+        if ($request->hasfile('imagen')) {
         	# code...
-        	$file=input::file('imagen');
+        	$file=$request->file('imagen');
         	$file->move(public_path().'/imagenes/articulos/',$file->getClientOriginalName());
         	$articulo->imagen=$file->getClientOriginalName();
         }

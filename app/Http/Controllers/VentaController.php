@@ -5,7 +5,6 @@ namespace sisViaticos\Http\Controllers;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Input;
 use sisViaticos\Http\Requests\VentaFormRequest;
 use sisViaticos\Venta;
 use sisViaticos\DetalleVenta;
