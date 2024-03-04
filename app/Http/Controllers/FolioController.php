@@ -236,9 +236,9 @@ class FolioController extends Controller
                     ->first();
 
                     Mail::Send('mails.cancelFolio', ['folioMail'=> $folioMail], function($mail) use($folioMail, $Autorizador){
-                            $mail->subject('[TEST] SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
+                            $mail->subject('SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
                             $mail->to($Autorizador->email, $Autorizador->NombreAuto);
-                            // $mail->to('enedelia.alanis@yopmail.com');
+                            // $mail->to('enedelia.alanis@summitmx.com');
                     });
 
                 }

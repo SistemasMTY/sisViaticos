@@ -239,10 +239,10 @@ class PreAnticipoController extends Controller
         ->first();
 
         Mail::Send('mails.preTransfer', ['data2'=> $data2], function($mail) use($data2){
-            $mail->subject('[TEST] SOLICITUD Y REPORTE DE VIAJE: '.$data2->name.', Folio: '.$data2->id_header_folio);
-            $mail->to('gerardo.castro@yopmail.com','GERARDO CASTRO')
-            ->cc('coral.mederos@yopmail.com');
-            // $mail->to('gerardo.castro@yopmail.com','GERARDO CASTRO');
+            $mail->subject('SOLICITUD Y REPORTE DE VIAJE: '.$data2->name.', Folio: '.$data2->id_header_folio);
+            $mail->to('gerardo.castro@summitmx.com','GERARDO CASTRO')
+            ->cc('coral.mederos@summitmx.com');
+            // $mail->to('gerardo.castro@summitmx.com','GERARDO CASTRO');
         });
 
         return Redirect::to('accounting/preAnticipo');

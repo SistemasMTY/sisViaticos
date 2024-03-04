@@ -17,130 +17,130 @@ class SendTransferController extends Controller
 
         //////////------AVISO DE ANTICIPO TESORERIA ----//////////////
         $data3['nameAdvT'] = 'GERARDO CASTRO';
-        $data3['emailAdvT'] = 'gerardo.castro@yopmail.com';
+        $data3['emailAdvT'] = 'gerardo.castro@summitmx.com';
         
-        $data3['CCemailAdvT'] = 'coral.mederos@yopmail.com';
+        $data3['CCemailAdvT'] = 'coral.mederos@summitmx.com';
                
         // /////////---------CORREO A RH MTY----------///////////////////
         $data3['MTYnameHR'] = 'RECURSOS HUMANOS MTY';
-        $data3['MTYemailHR'] = 'wendy.garza@yopmail.com';
+        $data3['MTYemailHR'] = 'wendy.garza@summitmx.com';
 
-        $data3['CC1MTYemailHR'] = 'juan.barron@yopmail.com';
+        $data3['CC1MTYemailHR'] = 'juan.barron@summitmx.com';
         
-        $data3['CC2MTYemailHR'] = 'mty.vigilancia@yopmail.com';
+        $data3['CC2MTYemailHR'] = 'mty.vigilancia@summitmx.com';
 
         // ///////--------RESERVACION DE VUELOS Y HOTEL MTY-----////////////
         $data3['MTYnameBuyF'] = 'RESERVACIONES Y VUELOS MTY';
-        $data3['MTYemailBuyF'] = 'wendy.garza@yopmail.com';
+        $data3['MTYemailBuyF'] = 'wendy.garza@summitmx.com';
         
-        $data3['CCMTYemailBuyF'] = 'mildred.asueta@yopmail.com';
+        $data3['CCMTYemailBuyF'] = 'mildred.asueta@summitmx.com';
 
         // /////////---------CORREO A RH QRO----------///////////////////
         $data3['QROnameHR'] = 'RECURSOS HUMANOS QRO';
-        $data3['QROemailHR'] = 'juan.hernandez@yopmail.com';
+        $data3['QROemailHR'] = 'juan.hernandez@summitmx.com';
 
-        $data3['CC1QROemailHR'] = 'francisco.peguero@yopmail.com';
+        $data3['CC1QROemailHR'] = 'francisco.peguero@summitmx.com';
         
-        $data3['CC2QROemailHR'] = 'vigilancia.ssm@yopmail.com';
+        $data3['CC2QROemailHR'] = 'vigilancia.ssm@summitmx.com';
 
         // ///////--------RESERVACION DE VUELOS Y HOTEL QRO-----////////////
         $data3['QROnameBuyF'] = 'RESERVACIONES Y VUELOS QRO';
-        $data3['QROemailBuyF'] = 'vanessa.gonzalez@yopmail.com';
+        $data3['QROemailBuyF'] = 'vanessa.gonzalez@summitmx.com';
 
-        $data3['CCQROemailBuyF'] = 'alejandra.trujillo@yopmail.com';
+        $data3['CCQROemailBuyF'] = 'alejandra.trujillo@summitmx.com';
 
         // /////////---------CORREO A RH SLM----------///////////////////
         $data3['SLMnameHR'] = 'RECURSOS HUMANOS SLM';
-        $data3['SLMemailHR'] = 'reyna.soto@yopmail.com';
+        $data3['SLMemailHR'] = 'reyna.soto@summitmx.com';
 
-        $data3['CC1SLMemailHR'] = 'francisco.peguero@yopmail.com';
+        $data3['CC1SLMemailHR'] = 'francisco.peguero@summitmx.com';
         
-        // $data3['CC2SLMemailHR'] = 'slm.vigilancia@yopmail.com';
+        // $data3['CC2SLMemailHR'] = 'slm.vigilancia@summitmx.com';
 
-        $data3['CC3SLMemailHR'] = 'viviana.mercado@yopmail.com';
+        $data3['CC3SLMemailHR'] = 'viviana.mercado@summitmx.com';
 
         // ///////--------RESERVACION DE VUELOS Y HOTEL SLM-----////////////
         $data3['SLMnameBuyF'] = 'RESERVACIONES Y VUELOS SLM';
-        $data3['SLMemailBuyF'] = 'andrea.villagomez@yopmail.com';#
+        $data3['SLMemailBuyF'] = 'andrea.villagomez@summitmx.com';#
 
-        $data3['CCSLMemailBuyF'] = 'alejandra.trujillo@yopmail.com';
+        $data3['CCSLMemailBuyF'] = 'alejandra.trujillo@summitmx.com';
 
-        $data3['MTYemailCxP'] = 'jorge.garcia@yopmail.com';
+        $data3['MTYemailCxP'] = 'jorge.garcia@summitmx.com';
         $data3['MTYnameCxP'] = 'CUENTAS X PAGAR MTY';
-        $data3['CCMTYemailCxP'] = 'angel.fuentes@yopmail.com';
+        $data3['CCMTYemailCxP'] = 'angel.fuentes@summitmx.com';
         
 
-        $data3['QROemailCxP'] = 'coral.mederos@yopmail.com';
+        $data3['QROemailCxP'] = 'coral.mederos@summitmx.com';
         $data3['QROnameCxP'] = 'CUENTAS X PAGAR QRO';
-        $data3['CCQROemailCxP'] = 'pablo.resendiz@yopmail.com';
+        $data3['CCQROemailCxP'] = 'pablo.resendiz@summitmx.com';
         
-        $data3['SLMemailCxP'] = 'coral.mederos@yopmail.com';
+        $data3['SLMemailCxP'] = 'coral.mederos@summitmx.com';
         $data3['SLMnameCxP'] = 'CUENTAS X PAGAR SLM';
-        $data3['CCSLMemailCxP'] = 'pablo.resendiz@yopmail.com';
+        $data3['CCSLMemailCxP'] = 'pablo.resendiz@summitmx.com';
         
         ///////////////////////////////////////////////////////////////////////////////////////
 
         // ################################CORREOS DE PRUEBA
         //////////------AVISO DE ANTICIPO TESORERIA ----//////////////
         // $data3['nameAdvT'] = 'GERARDO CASTRO';
-        // $data3['emailAdvT'] = 'gerardo.castro@yopmail.com';
+        // $data3['emailAdvT'] = 'gerardo.castro@summitmx.com';
 
-        // // $data3['CCemailAdvT'] = 'gerardo.castro@yopmail.com';
+        // // $data3['CCemailAdvT'] = 'gerardo.castro@summitmx.com';
                
         // // // /////////---------CORREO A RH MTY----------///////////////////
         // $data3['MTYnameHR'] = 'RECURSOS HUMANOS MTY';
-        // $data3['MTYemailHR'] = 'wendy.garza@yopmail.com';
+        // $data3['MTYemailHR'] = 'wendy.garza@summitmx.com';
 
-        // $data3['CC1MTYemailHR'] = 'juan.barron@yopmail.com';
+        // $data3['CC1MTYemailHR'] = 'juan.barron@summitmx.com';
 
-        // $data3['CC2MTYemailHR'] = 'mty.vigilancia@yopmail.com';
+        // $data3['CC2MTYemailHR'] = 'mty.vigilancia@summitmx.com';
         
         // // // ///////--------RESERVACION DE VUELOS Y HOTEL MTY-----////////////
         // $data3['MTYnameBuyF'] = 'RESERVACIONES Y VUELOS MTY';
-        // $data3['MTYemailBuyF'] = 'wendy.garza@yopmail.com';
+        // $data3['MTYemailBuyF'] = 'wendy.garza@summitmx.com';
 
-        // $data3['CCMTYemailBuyF'] = 'laura.delrio@yopmail.com';
+        // $data3['CCMTYemailBuyF'] = 'laura.delrio@summitmx.com';
 
         // // // /////////---------CORREO A RH QRO----------///////////////////
         // $data3['QROnameHR'] = 'RECURSOS HUMANOS QRO';
-        // $data3['QROemailHR'] = 'juan.hernandez@yopmail.com';
+        // $data3['QROemailHR'] = 'juan.hernandez@summitmx.com';
 
-        // $data3['CC1QROemailHR'] = 'francisco.peguero@yopmail.com';
+        // $data3['CC1QROemailHR'] = 'francisco.peguero@summitmx.com';
         
-        // $data3['CC2QROemailHR'] = 'vigilancia.ssm@yopmail.com';
+        // $data3['CC2QROemailHR'] = 'vigilancia.ssm@summitmx.com';
 
         // // // ///////--------RESERVACION DE VUELOS Y HOTEL QRO-----////////////
         // $data3['QROnameBuyF'] = 'RESERVACIONES Y VUELOS QRO';
-        // $data3['QROemailBuyF'] = 'laura.mendoza@yopmail.com';
+        // $data3['QROemailBuyF'] = 'laura.mendoza@summitmx.com';
         
-        // $data3['CCQROemailBuyF'] = 'alejandra.trujillo@yopmail.com';
+        // $data3['CCQROemailBuyF'] = 'alejandra.trujillo@summitmx.com';
         
         // // /////////---------CORREO A RH SLM----------///////////////////
         // $data3['SLMnameHR'] = 'RECURSOS HUMANOS SLM';
-        // $data3['SLMemailHR'] = 'paulina.gaona@yopmail.com';
+        // $data3['SLMemailHR'] = 'paulina.gaona@summitmx.com';
         
-        // $data3['CC1SLMemailHR'] = 'francisco.peguero@yopmail.com';
+        // $data3['CC1SLMemailHR'] = 'francisco.peguero@summitmx.com';
         
         
-        // $data3['CC2SLMemailHR'] = 'slm.vigilancia@yopmail.com';
+        // $data3['CC2SLMemailHR'] = 'slm.vigilancia@summitmx.com';
         
         // // ///////--------RESERVACION DE VUELOS Y HOTEL SLM-----////////////
         // $data3['SLMnameBuyF'] = 'RESERVACIONES Y VUELOS SLM';
-        // $data3['SLMemailBuyF'] = 'ericka.belman@yopmail.com';#
+        // $data3['SLMemailBuyF'] = 'ericka.belman@summitmx.com';#
         
-        // $data3['CCSLMemailBuyF'] = 'paulina.gaona@yopmail.com';
+        // $data3['CCSLMemailBuyF'] = 'paulina.gaona@summitmx.com';
         
-        // $data3['MTYemailCxP'] = 'jorge.garcia@yopmail.com';
+        // $data3['MTYemailCxP'] = 'jorge.garcia@summitmx.com';
         // $data3['MTYnameCxP'] = 'CUENTAS X PAGAR MTY';
-        // $data3['CCMTYemailCxP'] = 'angel.fuentes@yopmail.com';
+        // $data3['CCMTYemailCxP'] = 'angel.fuentes@summitmx.com';
         
-        // $data3['QROemailCxP'] = 'coarl.mederos@yopmail.com';
+        // $data3['QROemailCxP'] = 'coarl.mederos@summitmx.com';
         // $data3['QROnameCxP'] = 'CUENTAS X PAGAR QRO';
-        // $data3['CCQROemailCxP'] = 'pablo.resendiz@yopmail.com';
+        // $data3['CCQROemailCxP'] = 'pablo.resendiz@summitmx.com';
         
-        // $data3['SLMemailCxP'] = 'coral.mederos@yopmail.com';
+        // $data3['SLMemailCxP'] = 'coral.mederos@summitmx.com';
         // $data3['SLMnameCxP'] = 'CUENTAS X PAGAR SLM';
-        // $data3['CCSLMemailCxP'] = 'pablo.resendiz@yopmail.com';
+        // $data3['CCSLMemailCxP'] = 'pablo.resendiz@summitmx.com';
         
         /////////////////////////////////////////////////////////
 
@@ -198,7 +198,7 @@ class SendTransferController extends Controller
                 }
                 else{
                     Mail::Send('mails.advanceTransferS',  ['folioMail'=> $folioMail, 'folioAuto'=>$folioAuto], function($mail) use($folioMail, $data3){
-                        $mail->subject('[TEST] [TEST] SOLICITUD Y REPORTE DE VIAJE:'.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
+                        $mail->subject('SOLICITUD Y REPORTE DE VIAJE:'.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
                         $mail->to($data3['emailAdvT'],$data3['nameAdvT'])
                         ->cc($data3['CCemailAdvT']);
                     });    
@@ -212,13 +212,13 @@ class SendTransferController extends Controller
                     }
                 }
                 Mail::Send('mails.buyFligthS', ['folioMail'=> $folioMail, 'folioAuto'=>$folioAuto], function($mail) use($folioMail, $data3){
-                    $mail->subject('[TEST] SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
+                    $mail->subject('SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
                     $mail->to($data3['MTYemailBuyF'], $data3['MTYnameBuyF'])
                     ->cc($data3['CCMTYemailBuyF']);
                 });
     
                 Mail::Send('mails.humanResourcesS', ['folioMail'=> $folioMail, 'folioAuto'=>$folioAuto], function($mail) use($folioMail, $data3){
-                    $mail->subject('[TEST] SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
+                    $mail->subject('SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
                     $mail->to($data3['MTYemailHR'], $data3['MTYnameHR'])
                     ->cc($data3['CC1MTYemailHR'])
                     ->cc($data3['CC2MTYemailHR']);
@@ -241,7 +241,7 @@ class SendTransferController extends Controller
                 }
                 else{    
                     Mail::Send('mails.advanceTransferS', ['folioMail'=> $folioMail, 'folioAuto'=>$folioAuto], function($mail) use($folioMail, $data3){
-                        $mail->subject('[TEST] SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
+                        $mail->subject('SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
                         $mail->to($data3['emailAdvT'],$data3['nameAdvT'])
                         ->cc($data3['CCemailAdvT']);
                     });
@@ -258,28 +258,28 @@ class SendTransferController extends Controller
                 //Condicional para verificar que el usuario sea de MTY
                 if ($folioMail->company=='QRO'){
                     Mail::Send('mails.buyFligthS', ['folioMail'=> $folioMail, 'folioAuto'=>$folioAuto], function($mail) use($folioMail, $data3){
-                        $mail->subject('[TEST] SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
+                        $mail->subject('SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
                         $mail->to($data3['QROemailBuyF'], $data3['QROnameBuyF'])
                         ->cc($data3['CCQROemailBuyF']);
                     });
         
                     Mail::Send('mails.humanResourcesS', ['folioMail'=> $folioMail, 'folioAuto'=>$folioAuto], function($mail) use($folioMail, $data3){
-                        $mail->subject('[TEST] SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
+                        $mail->subject('SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
                         $mail->to($data3['QROemailHR'], $data3['QROnameHR'])
                         ->cc( $data3['CC1QROemailHR'])
-                        ->cc( $data3['CC2QROemailHR']);#'francisco.peguero@yopmail.com'
+                        ->cc( $data3['CC2QROemailHR']);#'francisco.peguero@summitmx.com'
                     });
                 }
 
                 elseif ($folioMail->company=='MTY'){
                     Mail::Send('mails.buyFligthS', ['folioMail'=> $folioMail, 'folioAuto'=>$folioAuto], function($mail) use($folioMail, $data3){
-                        $mail->subject('[TEST] SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
+                        $mail->subject('SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
                         $mail->to($data3['MTYemailBuyF'], $data3['MTYnameBuyF'])
                         ->cc($data3['CCMTYemailBuyF']);
                     });
         
                     Mail::Send('mails.humanResourcesS', ['folioMail'=> $folioMail, 'folioAuto'=>$folioAuto], function($mail) use($folioMail, $data3){
-                        $mail->subject('[TEST] SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
+                        $mail->subject('SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
                         $mail->to($data3['MTYemailHR'], $data3['MTYnameHR'])
                         ->cc($data3['CC1MTYemailHR'])
                         ->cc($data3['CC2MTYemailHR']);
@@ -292,7 +292,7 @@ class SendTransferController extends Controller
                     Mail::Send('mails.preAdvanceTransferS', ['folioMail'=> $folioMail, 'foliosPend'=>$foliosPend, 'folioAuto'=>$folioAuto], function($mail) use($folioMail, $data3){
                         $mail->subject('ADVIATICOS SOLICITUD DE PRE-ANTICIPO: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
                         $mail->to($data3['SLMemailCxP'], $data3['SLMnameCxP'])
-                        ->cc($data3['CCSLMemailCxP'], 'pablo.resendiz@yopmail.com');
+                        ->cc($data3['CCSLMemailCxP'], 'pablo.resendiz@summitmx.com');
                     });
                     if($folioMail->anticipo>0){    
                         $trans = new Transfer;
@@ -304,7 +304,7 @@ class SendTransferController extends Controller
                 }
                 else{    
                     Mail::Send('mails.advanceTransferS', ['folioMail'=> $folioMail, 'folioAuto'=>$folioAuto], function($mail) use($folioMail, $data3){
-                        $mail->subject('[TEST] SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
+                        $mail->subject('SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
                         $mail->to($data3['emailAdvT'],$data3['nameAdvT'])
                         ->cc($data3['CCemailAdvT']);
                     });
@@ -318,13 +318,13 @@ class SendTransferController extends Controller
                 }
                 if ($folioMail->company=='SLM'){
                     Mail::Send('mails.buyFligthS', ['folioMail'=> $folioMail, 'folioAuto'=>$folioAuto], function($mail) use($folioMail, $data3){
-                        $mail->subject('[TEST] SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
+                        $mail->subject('SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
                         $mail->to($data3['SLMemailBuyF'], $data3['SLMnameBuyF'])
                         ->cc( $data3['CCSLMemailBuyF']);;
                     });
         
                     Mail::Send('mails.humanResourcesS', ['folioMail'=> $folioMail, 'folioAuto'=>$folioAuto], function($mail) use($folioMail, $data3){
-                        $mail->subject('[TEST] SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
+                        $mail->subject('SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
                         $mail->to($data3['SLMemailHR'], $data3['SLMnameHR'])
                         ->cc($data3['CC1SLMemailHR'])
                         // ->cc($data3['CC2SLMemailHR'])
@@ -333,16 +333,16 @@ class SendTransferController extends Controller
                 }
                 elseif ($folioMail->company=='QRO'){
                     Mail::Send('mails.buyFligthS', ['folioMail'=> $folioMail, 'folioAuto'=>$folioAuto], function($mail) use($folioMail, $data3){
-                        $mail->subject('[TEST] SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
+                        $mail->subject('SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
                         $mail->to($data3['QROemailBuyF'], $data3['QROnameBuyF'])
                         ->cc($data3['CCQROemailBuyF']);
                     });
         
                     Mail::Send('mails.humanResourcesS', ['folioMail'=> $folioMail, 'folioAuto'=>$folioAuto], function($mail) use($folioMail, $data3){
-                        $mail->subject('[TEST] SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
+                        $mail->subject('SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
                         $mail->to($data3['QROemailHR'], $data3['QROnameHR'])
                         ->cc( $data3['CC1QROemailHR'])
-                        ->cc( $data3['CC2QROemailHR']);#'francisco.peguero@yopmail.com'
+                        ->cc( $data3['CC2QROemailHR']);#'francisco.peguero@summitmx.com'
                     });
                 }
 

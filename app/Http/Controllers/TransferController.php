@@ -223,9 +223,9 @@ class TransferController extends Controller
 
         if($data2->tipo=="Nacional"||$data2->moneda=="pesos"){
             Mail::Send('mails.transfer', ['data2'=> $data2], function($mail) use($data2){
-                $mail->subject('[TEST] SOLICITUD Y REPORTE DE VIAJE: '.$data2->name.', Folio: '.$data2->id_header_folio);
+                $mail->subject('SOLICITUD Y REPORTE DE VIAJE: '.$data2->name.', Folio: '.$data2->id_header_folio);
                 $mail->to($data2->emailU, $data2->name)
-                ->cc('gerardo.castro@yopmail.com');
+                ->cc('gerardo.castro@summitmx.com');
             });
         }
         else{
@@ -268,9 +268,9 @@ class TransferController extends Controller
             }
 
             Mail::Send('mails.transfer', ['data2'=> $data2], function($mail) use($data2){
-            $mail->subject('[TEST] SOLICITUD Y REPORTE DE VIAJE: '.$data2->name.', Folio: '.$data2->id_header_folio);
+            $mail->subject('SOLICITUD Y REPORTE DE VIAJE: '.$data2->name.', Folio: '.$data2->id_header_folio);
             $mail->to($data2->emailU, $data2->name)
-            ->cc('gerardo.castro@yopmail.com');
+            ->cc('gerardo.castro@summitmx.com');
             });
         }
 

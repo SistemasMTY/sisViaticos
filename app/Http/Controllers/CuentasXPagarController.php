@@ -415,7 +415,7 @@ class CuentasXPagarController extends Controller
         ->get();
 
         Mail::Send('mails.replyRequestCxPNo', ['folioMail'=> $folioMail,'folioMaill'=> $folioMaill,'detalles'=>$detalles, 'detalle'=>$detalle, 'tipomoneda'=>$tipomoneda], function($mail) use($folioMail){
-            $mail->subject('[TEST] SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
+            $mail->subject('SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
             $mail->to($folioMail->emailU, $folioMail->name);
         });
     }
@@ -472,7 +472,7 @@ class CuentasXPagarController extends Controller
 
        
         Mail::Send('mails.requestExpenseAuto1', ['folioMail'=> $folioMail,'folioMaill'=> $folioMaill,'detalles'=>$detalles,'detalle'=>$detalle, 'tipomoneda'=>$tipomoneda], function($mail) use($folioMail){
-            $mail->subject('[TEST] SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
+            $mail->subject('SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
             $mail->to($folioMail->emailA);
         });
     }
@@ -515,7 +515,7 @@ class CuentasXPagarController extends Controller
         ->get();
 
         Mail::Send('mails.replyRequestExpenseSiCxP', ['folioMail'=> $folioMail,'folioMaill'=> $folioMaill,'detalles'=>$detalles, 'detalle'=>$detalle, 'tipomoneda'=>$tipomoneda], function($mail) use($folioMail){
-            $mail->subject('[TEST] SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
+            $mail->subject('SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
             $mail->to($folioMail->emailU, $folioMail->name);
         });
 
@@ -611,11 +611,11 @@ class CuentasXPagarController extends Controller
             }   
 
             Mail::Send('mails.preTransferCXC', ['folioMail'=> $folioMail,'detalles'=>$detalles, 'detalle'=>$detalle,'folioUpdate'=>$folioUpdate], function($mail) use($folioMail){
-                $mail->subject('[TEST] SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
-                $mail->to('gerardo.castro@yopmail.com', 'GERARDO CASTRO','coral.mederos@yopmail.com')
-                // ->cc('gerardo.castro@yopmail.com')
+                $mail->subject('SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
+                $mail->to('gerardo.castro@summitmx.com', 'GERARDO CASTRO','coral.mederos@summitmx.com')
+                // ->cc('gerardo.castro@summitmx.com')
                 ->cc($folioMail->emailU);
-                // $mail->to('gerardo.castro@yopmail.com', 'GERARDO CASTRO')
+                // $mail->to('gerardo.castro@summitmx.com', 'GERARDO CASTRO')
                 // ->cc($folioMail->emailU);
             });
 
@@ -632,11 +632,11 @@ class CuentasXPagarController extends Controller
                 $rembolso->save();
 
                 Mail::Send('mails.repayment', ['folioMail'=> $folioMail,'folioMaill'=> $folioMaill,'detalles'=>$detalles, 'detalle'=>$detalle, 'tipomoneda'=>$tipomoneda], function($mail) use($folioMail){
-                    $mail->subject('[TEST] SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
-                    $mail->to('gerardo.castro@yopmail.com', 'GERARDO CASTRO','coral.mederos@yopmail.com')
-                    // ->cc('gerardo.castro@yopmail.com')
+                    $mail->subject('SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
+                    $mail->to('gerardo.castro@summitmx.com', 'GERARDO CASTRO','coral.mederos@summitmx.com')
+                    // ->cc('gerardo.castro@summitmx.com')
                     ->cc($folioMail->emailU);
-                    // $mail->to('gerardo.castro@yopmail.com', 'GERARDO CASTRO')
+                    // $mail->to('gerardo.castro@summitmx.com', 'GERARDO CASTRO')
                     // ->cc($folioMail->emailU);
                     
                 });
@@ -645,10 +645,10 @@ class CuentasXPagarController extends Controller
             else
             {
                 Mail::Send('mails.repaymentUser', ['folioMail'=> $folioMail,'folioMaill'=> $folioMaill,'detalles'=>$detalles, 'detalle'=>$detalle, 'tipomoneda'=>$tipomoneda], function($mail) use($folioMail){
-                    $mail->subject('[TEST] SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
+                    $mail->subject('SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
                     $mail->to($folioMail->emailU, $folioMail->name)
-                    ->cc('gerardo.castro@yopmail.com');
-                    // ->cc('gerardo.castro@yopmail.com');
+                    ->cc('gerardo.castro@summitmx.com');
+                    // ->cc('gerardo.castro@summitmx.com');
                     
                     
                 });
@@ -665,11 +665,11 @@ class CuentasXPagarController extends Controller
                 $rembolso->save();
 
                 Mail::Send('mails.repayment', ['folioMail'=> $folioMail,'folioMaill'=> $folioMaill,'detalles'=>$detalles, 'detalle'=>$detalle, 'tipomoneda'=>$tipomoneda], function($mail) use($folioMail){
-                    $mail->subject('[TEST] SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
-                    $mail->to('gerardo.castro@yopmail.com', 'GERARDO CASTRO','coral.mederos@yopmail.com')
-                    // ->cc('gerardo.castro@yopmail.com')
+                    $mail->subject('SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
+                    $mail->to('gerardo.castro@summitmx.com', 'GERARDO CASTRO','coral.mederos@summitmx.com')
+                    // ->cc('gerardo.castro@summitmx.com')
                     ->cc($folioMail->emailU);
-                    // $mail->to('gerardo.castro@yopmail.com', 'GERARDO CASTRO')
+                    // $mail->to('gerardo.castro@summitmx.com', 'GERARDO CASTRO')
                     // ->cc($folioMail->emailU);
                     
                 });
@@ -678,10 +678,10 @@ class CuentasXPagarController extends Controller
             else
             {
                 Mail::Send('mails.repaymentUser', ['folioMail'=> $folioMail,'folioMaill'=> $folioMaill,'detalles'=>$detalles, 'detalle'=>$detalle, 'tipomoneda'=>$tipomoneda], function($mail) use($folioMail){
-                    $mail->subject('[TEST] SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
+                    $mail->subject('SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
                     $mail->to($folioMail->emailU, $folioMail->name)
-                    ->cc('gerardo.castro@yopmail.com');
-                    // ->cc('gerardo.castro@yopmail.com');
+                    ->cc('gerardo.castro@summitmx.com');
+                    // ->cc('gerardo.castro@summitmx.com');
                     
                     
                 });

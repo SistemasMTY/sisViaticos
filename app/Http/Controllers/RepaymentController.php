@@ -238,9 +238,9 @@ class RepaymentController extends Controller
 
 
         Mail::Send('mails.transferRepayment', ['data2'=> $data2, 'data22'=> $data22,'detalles'=>$detalles], function($mail) use($data2){
-            $mail->subject('[TEST] SOLICITUD Y REPORTE DE VIAJE: '.$data2->name.', Folio: '.$data2->id_header_folio);
+            $mail->subject('SOLICITUD Y REPORTE DE VIAJE: '.$data2->name.', Folio: '.$data2->id_header_folio);
             $mail->to($data2->emailU, $data2->name)
-            ->cc('gerardo.castro@yopmail.com');
+            ->cc('gerardo.castro@summitmx.com');
         });
 
         return Redirect::to('treasury/rembolso');
