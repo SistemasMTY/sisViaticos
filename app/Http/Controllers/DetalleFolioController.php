@@ -233,7 +233,7 @@ class DetalleFolioController extends Controller
                     }
 
                     foreach ($Emisores as $emisor) {
-                        $nombre = $emisor->getNodePath(2);         
+                        // $nombre = $emisor->getNodePath(2);         
                         $rfcEmisor = $emisor->getAttribute("Rfc");
                         $nombreEmisor = $emisor->getAttribute("Nombre");
                     }

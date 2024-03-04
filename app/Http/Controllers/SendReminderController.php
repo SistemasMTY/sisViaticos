@@ -67,7 +67,7 @@ class SendReminderController extends Controller
 		            Mail::Send('mails.expirationCreated', ['data1'=> $data1], function($mail) use($data1){
 		                $mail->subject(' Recordatorio ADViaticos/ADViaticos Reminder: '.$data1->name.', Folio: '.$data1->id_header_folio);
 		                $mail->to($data1->Uemail, $data1->name);
-		                // $mail->to('carlos.tovar@summitmx.com', $data1->name);
+		                // $mail->to('carlos.tovar@yopmail.com', $data1->name);
 		            });
     				$cont=$cont+1;
 
@@ -119,7 +119,7 @@ class SendReminderController extends Controller
     				Mail::Send('mails.expirationReminder', ['data1'=> $data1,'diff'=>$diff], function($mail) use($data1){
 		                $mail->subject('Recordatorio ADViaticos/ADViaticos Reminder: '.$data1->name.', Folio: '.$data1->id_header_folio);
 		                $mail->to($data1->Uemail, $data1->name);
-		                // $mail->to('carlos.tovar@summitmx.com', $data1->name);
+		                // $mail->to('carlos.tovar@yopmail.com', $data1->name);
 		            });
     			}
     			else
@@ -139,7 +139,7 @@ class SendReminderController extends Controller
     				Mail::Send('mails.checkReminder', ['data1'=> $data1,'diff'=>$diff], function($mail) use($data1){
 		                $mail->subject('Recordatorio ADViaticos/ADViaticos Reminder: '.$data1->name.', Folio: '.$data1->id_header_folio);
 		                $mail->to($data1->Uemail, $data1->name);
-		                // $mail->to('carlos.tovar@summitmx.com', $data1->name);
+		                // $mail->to('carlos.tovar@yopmail.com', $data1->name);
 		            });
     			}
 
@@ -194,7 +194,7 @@ class SendReminderController extends Controller
             	Mail::Send('mails.reminderAuthorizer', ['folios'=> $folios], function($mail) use($Autorizador){
 	                $mail->subject('Recordatorio ADViaticos/ADViaticos Reminder: '.$Autorizador->autorizador);
 	                $mail->to($Autorizador->autorizador_email, $Autorizador->autorizador);
-	                //$mail->to('carlos.tovar@summitmx.com', $Autorizador->autorizador);
+	                //$mail->to('carlos.tovar@yopmail.com', $Autorizador->autorizador);
 	            });
 
 	            $cont=$cont+1;
@@ -233,10 +233,10 @@ class SendReminderController extends Controller
 				->first();
 
 				Mail::Send('mails.ComprobacionporVencer', ['data2'=> $data2], function($mail) use($data2){
-					$mail->subject('SOLICITUD Y REPORTE DE VIAJE: '.$data2->name.', Folio: '.$data2->id_header_folio);
+					$mail->subject('[TEST] SOLICITUD Y REPORTE DE VIAJE: '.$data2->name.', Folio: '.$data2->id_header_folio);
 					$mail->to($data2->emailU, $data2->name)
-					->cc([$data2->correo_auto1, $data2->correo_auto2, 'raymundo.lozano@summitmx.com', 'takehiko.gomi@summitmx.com', 'andres.salinas@summitmx.com'])
-					->bcc('enedelia.alanis@summitmx.com');
+					->cc([$data2->correo_auto1, $data2->correo_auto2, 'raymundo.lozano@yopmail.com', 'takehiko.gomi@yopmail.com', 'andres.salinas@yopmail.com'])
+					->bcc('enedelia.alanis@yopmail.com');
 				});
 			}
 			else{
@@ -249,9 +249,9 @@ class SendReminderController extends Controller
 				->first();
 				
 				Mail::Send('mails.ComprobacionporVencer', ['data2'=> $data2], function($mail) use($data2){
-					$mail->subject('SOLICITUD Y REPORTE DE VIAJE: '.$data2->name.', Folio: '.$data2->id_header_folio);
+					$mail->subject('[TEST] SOLICITUD Y REPORTE DE VIAJE: '.$data2->name.', Folio: '.$data2->id_header_folio);
 					$mail->to($data2->emailU, $data2->name)
-					->bcc('enedelia.alanis@summitmx.com');
+					->bcc('enedelia.alanis@yopmail.com');
 				});
 			}
 		}
@@ -284,11 +284,11 @@ class SendReminderController extends Controller
 			->first();
 	
 			Mail::Send('mails.ComprobacionExt', ['data2'=> $data2], function($mail) use($data2){
-				$mail->subject('SOLICITUD Y REPORTE DE VIAJE: '.$data2->name.', Folio: '.$data2->id_header_folio);
-				// $mail->to('enedelia.alanis@summitmx.com')
+				$mail->subject('[TEST] SOLICITUD Y REPORTE DE VIAJE: '.$data2->name.', Folio: '.$data2->id_header_folio);
+				// $mail->to('enedelia.alanis@yopmail.com')
 				$mail->to($data2->emailU, $data2->name)
-				->cc([$data2->correo_auto1, $data2->correo_auto2, 'raymundo.lozano@summitmx.com', 'takehiko.gomi@summitmx.com', 'andres.salinas@summitmx.com'])
-				->bcc('enedelia.alanis@summitmx.com');
+				->cc([$data2->correo_auto1, $data2->correo_auto2, 'raymundo.lozano@yopmail.com', 'takehiko.gomi@yopmail.com', 'andres.salinas@yopmail.com'])
+				->bcc('enedelia.alanis@yopmail.com');
 			});
 		}
 

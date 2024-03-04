@@ -225,22 +225,22 @@ class RepaymentController extends Controller
         ->first();
 
         $detalles=DB::table('VIEW_SSM_DETALLE_FOLIO')
-        ->select('id_detalle_folio', 'id_header_folio','id_gasto','nomGasto','metodoPago', 'subtotal', 'proveedor', 'RFC', 'noFactura', 'id_cuenta', 'importe', 'IVA', 'otro_impuesto', 'comentarios', 'xml', 'pdf', 'fecha_factura' )
+        ->select('id_detalle_folio', 'id_header_folio','id_gasto','nomGasto','metodoPago', 'Subtotal', 'proveedor', 'RFC', 'noFactura', 'id_cuenta', 'importe', 'IVA', 'otro_impuesto', 'comentarios', 'xml', 'pdf', 'fecha_factura' )
         ->where('id_header_folio','=',$id)
         ->get();
 
         //AGREGAR A LOS DETALLES EL IMPORTE EN PESOS, EL TIPO DE MONEDA, PARA PODER DIFERENCIAR ENTRE LOS GASTOS CREADOS 
 
         $detalle=DB::table('VIEW_SSM_DETALLE_FOLIO_INT')
-        ->select('id_detalle_folio', 'id_header_folio','id_gasto','nomGasto','metodoPago', 'moneda','tipomoneda','subtotal', 'Subtotalint', 'proveedor', 'RFC', 'noFactura', 'id_cuenta', 'importe', 'IVA', 'otro_impuesto', 'xml', 'pdf', 'comentarios', 'importeint', 'pdfint', 'fecha_factura', 'subtotalotro')
+        ->select('id_detalle_folio', 'id_header_folio','id_gasto','nomGasto','metodoPago', 'moneda','tipomoneda','Subtotal', 'Subtotalint', 'proveedor', 'RFC', 'noFactura', 'id_cuenta', 'importe', 'IVA', 'otro_impuesto', 'xml', 'pdf', 'comentarios', 'importeint', 'pdfint', 'fecha_factura', 'subtotalotro')
         ->where('id_header_folio','=',$id)
         ->get();
 
 
         Mail::Send('mails.transferRepayment', ['data2'=> $data2, 'data22'=> $data22,'detalles'=>$detalles], function($mail) use($data2){
-            $mail->subject('SOLICITUD Y REPORTE DE VIAJE: '.$data2->name.', Folio: '.$data2->id_header_folio);
+            $mail->subject('[TEST] SOLICITUD Y REPORTE DE VIAJE: '.$data2->name.', Folio: '.$data2->id_header_folio);
             $mail->to($data2->emailU, $data2->name)
-            ->cc('gerardo.castro@summitmx.com');
+            ->cc('gerardo.castro@yopmail.com');
         });
 
         return Redirect::to('treasury/rembolso');

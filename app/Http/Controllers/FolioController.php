@@ -236,9 +236,9 @@ class FolioController extends Controller
                     ->first();
 
                     Mail::Send('mails.cancelFolio', ['folioMail'=> $folioMail], function($mail) use($folioMail, $Autorizador){
-                            $mail->subject('SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
+                            $mail->subject('[TEST] SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
                             $mail->to($Autorizador->email, $Autorizador->NombreAuto);
-                            // $mail->to('enedelia.alanis@summitmx.com');
+                            // $mail->to('enedelia.alanis@yopmail.com');
                     });
 
                 }
@@ -257,7 +257,7 @@ class FolioController extends Controller
         $folio=DB::table('ssm_viat_header_folio')
         ->where('id_header_folio','=',$id)
         ->where('company','=',Auth::user()->company)
-        ->first();;
+        ->first();
         $monedas=DB::table('ssm_viat_moneda')->get();
         $usernom = Auth::user()->numeroNom;
         $branch = Auth::user()->company;

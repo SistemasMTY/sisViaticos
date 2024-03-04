@@ -324,7 +324,7 @@
 					Swal.showLoading();
 					$.ajax({
 					type: "POST",
-					url: "http://170.1.1.253:8012/api/v5_1/NewExpenseFolio",
+					url: "http://170.1.1.253:8015/api/v5_1/NewExpenseFolio",
 					contentType: 'application/json',
 					data: JSON.stringify({                
 						'id' : "{{$folio->id_header_folio}}",

@@ -32,6 +32,7 @@ class CuentasXPagarValidadosController extends Controller
     {
         if ($request) {
             $fechaI = trim($request->get('fechaI'));
+            $query = trim($request->get('searchText'));
             if ($fechaI == "") {
                 $fechaI = Carbon::create(2018, 1, 1, 0, 0, 0, 'America/Monterrey');
             }
@@ -41,96 +42,30 @@ class CuentasXPagarValidadosController extends Controller
                 $fechaF = Carbon::now('America/Monterrey');
             }
 
-            if (Auth::user()->id == 7 || Auth::user()->id==1038 || Auth::user()->id == 2291 ) {
-                $query = trim($request->get('searchText'));
-                $folios = DB::table('VIEW_SSM_FOLIOS_CCP')
-                    ->select('id_header_folio as folio', 'name', 'company', 'fecha', 'fecha_salida', 'fecha_llegada', 'tipo', 'destino', 'id_status', 'anticipo', 'all_total', 'status', 'descripcion')
-                    ->whereIn('BranchRH', ['SLM', 'QRO', 'QRO,SLM', 'QRO,SLM,MTY'])  #Para Coral de QRO
-                    ->where('name', 'LIKE', '%' . $query . '%')
-                    ->whereIn('id_status', ['16'])
-                    ->whereBetween('fecha_salida', [$fechaI, $fechaF])
-                    ->orwhere('id_header_folio', 'LIKE', '%' . $query . '%')
-                    ->whereIn('BranchRH', ['SLM', 'QRO', 'QRO,SLM', 'QRO,SLM,MTY'])  #Para Coral de QRO
-                    ->whereIn('id_status', ['16'])
-                    ->whereBetween('fecha_salida', [$fechaI, $fechaF])
-                    ->orderBy('id_header_folio', 'desc')
-                    ->paginate(7);
-            }
-            if (Auth::user()->id == 6) {
-                $query = trim($request->get('searchText'));
-                $folios = DB::table('VIEW_SSM_FOLIOS_CCP')
-                    ->select('id_header_folio as folio', 'name', 'company', 'fecha', 'fecha_salida', 'fecha_llegada', 'tipo', 'destino', 'id_status', 'anticipo', 'all_total', 'status', 'descripcion')
-                    ->where('BranchRH', '=', 'QRO') #Para Zulem de QRO
-                    ->where('name', 'LIKE', '%' . $query . '%')
-                    ->whereIn('id_status', ['16'])
-                    ->whereBetween('fecha_salida', [$fechaI, $fechaF])
-                    ->orwhere('id_header_folio', 'LIKE', '%' . $query . '%')
-                    ->where('BranchRH', '=', 'QRO') #Para Zulem de QRO
-                    ->whereIn('id_status', ['16'])
-                    ->whereBetween('fecha_salida', [$fechaI, $fechaF])
-                    ->orderBy('id_header_folio', 'desc')
-                    ->paginate(7);
-            }
-            if (Auth::user()->id == 10 || Auth::user()->id == 27 || Auth::user()->id == 2249 || Auth::user()->id == 2260 || Auth::user()->id == 2196 || Auth::user()->id == 2217 || Auth::user()->id == 2261 || Auth::user()->id==2319) {
-                $query = trim($request->get('searchText'));
-                $folios = DB::table('VIEW_SSM_FOLIOS_CCP')
-                    ->select('id_header_folio as folio', 'name', 'company', 'fecha', 'fecha_salida', 'fecha_llegada', 'tipo', 'destino', 'id_status', 'anticipo', 'all_total', 'status', 'descripcion')
-                    ->whereIn('BranchRH', ['SLM', 'QRO', 'QRO,SLM', 'QRO,SLM,MTY'])  #Para Coral de QRO
-                    ->where('name', 'LIKE', '%' . $query . '%')
-                    ->whereIn('id_status', ['16'])
-                    ->whereBetween('fecha_salida', [$fechaI, $fechaF])
-                    ->orwhere('id_header_folio', 'LIKE', '%' . $query . '%')
-                    ->orderBy('id_header_folio', 'desc')
-                    ->whereIn('BranchRH', ['SLM', 'QRO', 'QRO,SLM', 'QRO,SLM,MTY'])  #Para Coral de QRO
-                    ->whereIn('id_status', ['16'])
-                    ->whereBetween('fecha_salida', [$fechaI, $fechaF])
-                    ->paginate(7);
-            }
-            if (Auth::user()->id == 1190) {
-                $query = trim($request->get('searchText'));
-                $folios = DB::table('VIEW_SSM_FOLIOS_CCP')
-                    ->select('id_header_folio as folio', 'name', 'company', 'fecha', 'fecha_salida', 'fecha_llegada', 'tipo', 'destino', 'id_status', 'anticipo', 'all_total', 'status', 'descripcion')
-                    ->whereIn('BranchRH', ['SLM', 'QRO', 'QRO,SLM'])  #Para Coral de QRO
-                    ->where('name', 'LIKE', '%' . $query . '%')
-                    ->whereIn('id_status', ['16'])
-                    ->whereBetween('fecha_salida', [$fechaI, $fechaF])
-                    ->orwhere('id_header_folio', 'LIKE', '%' . $query . '%')
-                    ->whereIn('BranchRH', ['SLM', 'QRO', 'QRO,SLM'])  #Para Coral de QRO
-                    ->whereIn('id_status', ['16'])
-                    ->whereBetween('fecha_salida', [$fechaI, $fechaF])
-                    ->orderBy('id_header_folio', 'desc')
-                    ->paginate(7);
-            } elseif (Auth::user()->id == 1 || Auth::user()->id == 1195) {
-                $query = trim($request->get('searchText'));
-                $folios = DB::table('VIEW_SSM_FOLIOS_CCP')
-                    ->select('id_header_folio as folio', 'name', 'company', 'fecha', 'fecha_salida', 'fecha_llegada', 'tipo', 'destino', 'id_status', 'anticipo', 'all_total', 'status', 'descripcion')
-                    ->whereIn('BranchRH', ['SLM', 'QRO', 'QRO,SLM', 'MTY', 'QRO,SLM,MTY'])
-                    ->where('name', 'LIKE', '%' . $query . '%')
-                    ->whereIn('id_status', ['16'])
-                    ->whereBetween('fecha_salida', [$fechaI, $fechaF])
-                    ->orwhere('id_header_folio', 'LIKE', '%' . $query . '%')
-                    ->whereIn('BranchRH', ['SLM', 'QRO', 'QRO,SLM', 'MTY', 'QRO,SLM,MTY'])
-                    ->whereIn('id_status', ['16'])
-                    ->whereBetween('fecha_salida', [$fechaI, $fechaF])
-                    ->orderBy('id_header_folio', 'desc')
-                    ->paginate(7);
+            if (in_array(Auth::user()->id, [7, 1038, 2291, 10, 27, 2249, 2260, 2196, 2217, 2261, 2319])) {
+                $companias = ['QRO', 'QRO,SLM', 'QRO,SLM,MTY'];
+            } elseif (Auth::user()->id == 1195) {
+                $companias = ['QRO', 'QRO,SLM', 'QRO,SLM,MTY', 'MTY'];                
+            } elseif (in_array(Auth::user()->id, [7, 1190])) {
+                $companias = ['QRO', 'SLM', 'QRO,SLM'];
+            } elseif (Auth::user()->id == 6) {
+                $companias = ['QRO'];
+            } elseif (in_array(Auth::user()->id, [4, 5])) {
+                $companias = ['MTY'];
             }
 
-            if (Auth::user()->id == 4 || Auth::user()->id == 5) {
-                $query = trim($request->get('searchText'));
-                $folios = DB::table('VIEW_SSM_FOLIOS_CCP')
-                    ->select('id_header_folio as folio', 'name', 'company', 'fecha', 'fecha_salida', 'fecha_llegada', 'tipo', 'destino', 'id_status', 'anticipo', 'all_total', 'status', 'descripcion')
-                    ->where('BranchRH', '=', 'MTY')
-                    ->where('name', 'LIKE', '%' . $query . '%')
-                    ->whereIn('id_status', ['16'])
-                    ->whereBetween('fecha_salida', [$fechaI, $fechaF])
-                    ->orwhere('id_header_folio', 'LIKE', '%' . $query . '%')
-                    ->where('BranchRH', '=', 'MTY')
-                    ->whereIn('id_status', ['16'])
-                    ->whereBetween('fecha_salida', [$fechaI, $fechaF])
-                    ->orderBy('id_header_folio', 'desc')
-                    ->paginate(7);
-            }
+            $folios = DB::table('VIEW_SSM_FOLIOS_CCP')
+            ->select('id_header_folio as folio', 'name', 'company', 'fecha', 'fecha_salida', 'fecha_llegada', 'tipo', 'destino', 'id_status', 'anticipo', 'all_total', 'status', 'descripcion')
+            ->whereIn('BranchRH', $companias)
+            ->where('name', 'LIKE', '%' . $query . '%')
+            ->whereIn('id_status', ['16'])
+            ->whereBetween('fecha_salida', [$fechaI, $fechaF])
+            ->orwhere('id_header_folio', 'LIKE', '%' . $query . '%')
+            ->whereIn('BranchRH', $companias)
+            ->whereIn('id_status', ['16'])
+            ->whereBetween('fecha_salida', [$fechaI, $fechaF])
+            ->orderBy('id_header_folio', 'desc')
+            ->get();           
 
             $usernom = Auth::user()->numeroNom;
             $branch = Auth::user()->company;

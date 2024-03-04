@@ -29,47 +29,27 @@ class FlightsController extends Controller
     public function index(Request $request)
     {
         if ($request){
-            // Gastos de Vuelo que cumplan con QRO, QRO,SLM, QRO,SLM,MTY
-            if(Auth::user()->id==187 || Auth::user()->id==1195 || Auth::user()->id==2310){
-                $query=trim($request->get('searchText'));
-                $folios=DB::table('VIEW_SSM_FLIGHTS_NO')
-                ->select('id_header_folio as folio','NombreCompleto as name','compania as company','fecha','tipo','destino','criterio', 'fecha_salida', 'fecha_llegada')
-                ->whereIn('compania',['QRO', 'QRO,SLM', 'QRO,SLM,MTY']) #Pendiente de Revisar
-	            ->where('NombreCompleto','LIKE','%'.$query.'%')
-	            ->orwhere('id_header_folio','LIKE','%'.$query.'%')
-                ->whereIn('compania',['QRO', 'QRO,SLM', 'QRO,SLM,MTY']) #Pendiente de Revisar
-	            ->orderBy('id_header_folio','desc')
-	            ->paginate(7);	            
-            }
+            $query=trim($request->get('searchText'));
 
-            // Informacion para planta SLM
-            if(Auth::user()->id==2304){
-                $query=trim($request->get('searchText'));
-                $folios=DB::table('VIEW_SSM_FLIGHTS_NO')
-                ->select('id_header_folio as folio','NombreCompleto as name','compania as company','fecha','tipo','destino','criterio', 'fecha_salida', 'fecha_llegada')
-                ->whereIn('compania',['SLM'])
-	            ->where('NombreCompleto','LIKE','%'.$query.'%')
-                ->orwhere('id_header_folio','LIKE','%'.$query.'%')
-                ->whereIn('compania',['QRO', 'QRO,SLM', 'QRO,SLM,MTY']) #Pendiente de Revisar
-	            ->orderBy('id_header_folio','desc')
-	            ->paginate(7);	  
+            if (in_array(Auth::user()->id, [187, 2310])) {
+                $companias = ['QRO', 'QRO,SLM', 'QRO,SLM,MTY'];
+            } elseif (Auth::user()->id == 2304) {
+                $companias = ['SLM'];
             }
-
-            // Informacion para planta MTY
-           
-
-            // Info para admins
-            if(Auth::user()->id==2321|| Auth::user()->id==5 ){
-                $query=trim($request->get('searchText'));
-                $folios=DB::table('VIEW_SSM_FLIGHTS_NO')
-                ->select('id_header_folio as folio','NombreCompleto as name','compania as company','fecha','tipo','destino','criterio', 'fecha_salida', 'fecha_llegada')
-                ->whereIn('compania',['MTY'])
-	            ->where('NombreCompleto','LIKE','%'.$query.'%')
-                ->orwhere('id_header_folio','LIKE','%'.$query.'%')
-                ->whereIn('compania',['MTY']) #Pendiente de Revisar
-	            ->orderBy('id_header_folio','desc')
-	            ->paginate(7);	  
+            elseif (Auth::user()->id == 1195) {
+                $companias = ['QRO', 'QRO,SLM', 'QRO,SLM,MTY', 'MTY'];
+            } elseif (in_array(Auth::user()->id, [2321, 5])) {
+                $companias = ['MTY'];
             }
+            $folios = DB::table('VIEW_SSM_FLIGHTS_NO')
+            ->select('id_header_folio as folio', 'NombreCompleto as name', 'compania as company', 'fecha', 'tipo', 'destino', 'criterio', 'fecha_salida', 'fecha_llegada')
+            ->whereIn('compania', $companias)
+            ->where(function ($queryBuilder) use ($query) {
+                $queryBuilder->where('NombreCompleto', 'LIKE', '%' . $query . '%')
+                    ->orWhere('id_header_folio', 'LIKE', '%' . $query . '%');
+            })
+            ->orderBy('id_header_folio', 'desc')
+            ->get();
 
             $usernom = Auth::user()->numeroNomActual;
             $userClaims = DB::select('EXEC Sp_Get_RH7_Info_Users ?', Array($usernom));
@@ -184,7 +164,7 @@ class FlightsController extends Controller
                 // }
 
                 foreach ($Emisores as $emisor) {
-                    $nombre = $emisor->getNodePath(2);         
+                    // $nombre = $emisor->getNodePath(2);         
                     $rfcEmisor = $emisor->getAttribute("Rfc");
                     $nombreEmisor = $emisor->getAttribute("Nombre");
                 }
@@ -255,12 +235,12 @@ class FlightsController extends Controller
                 $jsonData = $response->json();
                     
                 // Realiza la condicional para revisar que informacion fue la que se obtuvo de respuesta
-                if($jsonData['status'] == 'true'){
-                    $respuesta = $jsonData['data'] . ' TT: ' . $jsonData['tipo'];
-                    return response()->json(array('jsonData'=>$respuesta));
-                }
-                else{
-                    if($jsonData['data'] = 'El XML ya ha sido cargado anteriormente'){
+                // if($jsonData['status'] == 'true'){
+                //     $respuesta = $jsonData['data'] . ' TT: ' . $jsonData['tipo'];
+                //     return response()->json(array('jsonData'=>$respuesta));
+                // }
+                // else{
+                //     if($jsonData['data'] = 'El XML ya ha sido cargado anteriormente'){
                         $fileXML->move($folder,$fileXML->getClientOriginalName());
                         $filePDF=$request->file('xpdf'); 
                         $filePDF->move($folder,$filePDF->getClientOriginalName());
@@ -294,11 +274,11 @@ class FlightsController extends Controller
                         
                         // Se realiza el stored procedure para subir los detalles
                         $addDetallesAmex = DB::UPDATE('EXEC Sp_Add_Items_AMEX ?,?,?,?', Array($UUID1, $request->get('id_folio'),$TasaRetencion, $Retencion));
-                    }
-                    else{
-                        Session()->flash('msg',$jsonData['data']);
-                    }
-                }                  
+                    // }
+                    // else{
+                    //     Session()->flash('msg',$jsonData['data']);
+                    // }
+                // }                  
             }
             else{
                 $detalle=Vuelo::where('id_header_folio','=',$request->get('id_folio'))
@@ -369,8 +349,7 @@ class FlightsController extends Controller
         ->where('id_header_folio','=',$id)
         ->first();
 
-        $folioSum=Vuelo::where('id_header_folio','=',$folio->id_header_folio)
-        ->where('branch','=',Auth::user()->company)
+        $folioSum=Vuelo::where('id_header_folio','=',$folio->id_header_folio)        
         ->first();
 
         $folioSum->motivo_descartar=$request->comentariosdescartar;

@@ -5,9 +5,9 @@
 </head>
 <body>
 
-	<table border="1" width="700px">
+	<table style="border: solid 1px;" width="700px">
 		<td>
-			<table border="">
+			<table>
 			@if($folio->id_header_folio > 5032 || $folio->id==139){
 					<td width="205px"><img src="img/servilamina.jpg" height="40px" width="204px"></td>
 				@endif
@@ -67,7 +67,7 @@
 						</table>
 					</td>
 					<td>
-						<table border="" style="border-collapse: collapse">
+						<table style="border-collapse: collapse">
 							<tr>
 								<th></th>
 							</tr>
@@ -120,7 +120,7 @@
 						</table>
 					</td>
 					<td>
-						<table border="" style="border-collapse: collapse">
+						<table style="border-collapse: collapse">
 							<tr>
 								<th></th>
 							</tr>
@@ -169,7 +169,7 @@
 						</table>
 					</td>
 					<td>
-						<table border="" style="border-collapse: collapse">
+						<table style="border-collapse: collapse">
 							<tr>
 								<th></th>
 							</tr>
@@ -219,84 +219,84 @@
 					</td>
 				</tr>				
 			</table>
-			<table border="" width="100%">
+			<table  width="100%">
 				<tr><td height="15px"></td></tr>
 			</table>
-			<table border="" width="100%" style="border-collapse: collapse">
+			<table width="100%" style="border-collapse: collapse">
 				<tr>
 					<td >
-						<table border="1"  style="border-collapse: collapse" cellpadding="0" cellspacing="0">
+						<table style="border: solid 1px; border-collapse: collapse" cellpadding="0" cellspacing="0">
 							<tr>
-								<td height="20px" width="200px" bgcolor="Silver" style="font-size:11px">FECHA / DATE</td>
-								<td height="20px" width="500px" style="font-size:11px" align="center">{{date('d-m-Y', strtotime($folio->fecha))}}</td>
+								<td height="20px" width="200px" bgcolor="Silver" style="border: solid 1px; font-size:11px">FECHA / DATE</td>
+								<td height="20px" width="499px" style="border: solid 1px; font-size:11px" align="center">{{date('d-m-Y', strtotime($folio->fecha))}}</td>
 							</tr>
 						</table>
 					</td>
 				</tr>
 				<tr>
 					<td>
-						<table border="1" style="border-collapse: collapse" cellpadding="0" cellspacing="0">
+						<table style="border: solid 1px; border-collapse: collapse" cellpadding="0" cellspacing="0">
 							<tr>
-								<td width="200px" style="font-size:11px" rowspan="2"  bgcolor="Silver">NOMBRE COMPLETO / FULL NAME<br>PUESTO / TITLE<br><br>NOMBRE DEL DEPTO / DEPT NAME</td>
-								<td width="300px" style="font-size:11px" align="center" rowspan="2">{{$profiles->NombreCompleto}}<br>{{$profiles->PuestoDescripcion}}<br><br>{{$profiles->depto}}</td>
-								<td width="200px" bgcolor="Silver"  style="font-size:10px;" align="center"> CUENTA CLABE / BANK ACCOUNT</td>
+								<td width="200px" style="border: solid 1px; font-size:11px" rowspan="2"  bgcolor="Silver">NOMBRE COMPLETO / FULL NAME<br>PUESTO / TITLE<br><br>NOMBRE DEL DEPTO / DEPT NAME</td>
+								<td width="300px" style="border: solid 1px; font-size:11px" align="center" rowspan="2">{{$profiles->NombreCompleto}}<br>{{$profiles->PuestoDescripcion}}<br><br>{{$profiles->depto}}</td>
+								<td width="198px" bgcolor="Silver"  style="border: solid 1px; font-size:10px;" align="center"> CUENTA CLABE / BANK ACCOUNT</td>
 							</tr>
 							<tr>
-								<td style="font-size:11px" align="center">{{$profiles->CLABE}} /<br>{{$profiles->BancoCuenta}}</td>
-							</tr>
-						</table>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<table border="1" style="border-collapse: collapse" cellpadding="0" cellspacing="0">
-							<tr>
-								<td width="200px" style="font-size: 11px;" bgcolor="Silver">DESTINO / DESTINATION</td>
-								<td width="300px" style="font-size: 11px;" align="center">{{$folio->destino}}</td>
-								<td width="100px" style="font-size: 10px;" align="center" bgcolor="Silver">TIPO<br>TYPE</td>
-								<td width="98px" style="font-size: 11px;" align="center">{{$folio->tipo}}</td>
+								<td style="border: solid 1px; font-size:11px" align="center">{{$profiles->CLABE}} /<br>{{$profiles->BancoCuenta}}</td>
 							</tr>
 						</table>
 					</td>
 				</tr>
 				<tr>
 					<td>
-						<table border="1" style="border-collapse: collapse;" cellpadding="0" cellspacing="0" >
+						<table style="border: solid 1px; border-collapse: collapse" cellpadding="0" cellspacing="0">
 							<tr>
-								<td width="200px" style="font-size: 11px;" bgcolor="Silver">PROPOSITOS / PURPOSES</td>
-								<td width="500px" align="center" style="font-size: 11px;">{{$folio->proposito}}</td>
+								<td width="200px" style="border: solid 1px; font-size: 11px;" bgcolor="Silver">DESTINO / DESTINATION</td>
+								<td width="300px" style="border: solid 1px; font-size: 11px;" align="center">{{$folio->destino}}</td>
+								<td width="100px" style="border: solid 1px; font-size: 10px;" align="center" bgcolor="Silver">TIPO<br>TYPE</td>
+								<td width="97px" style="border: solid 1px; font-size: 11px;" align="center">{{$folio->tipo}}</td>
 							</tr>
 						</table>
 					</td>
 				</tr>
 				<tr>
 					<td>
-						<table border="1" style="border-collapse: collapse;" cellpadding="0" cellspacing="0">
+						<table style="border: solid 1px; border-collapse: collapse;" cellpadding="0" cellspacing="0" >
 							<tr>
-								<td width="200px" style="font-size: 11px;" bgcolor="Silver">PERIODO / PERIOD</td>
-								<td width="150px" style="font-size: 11px;" align="center">DE / FROM: {{ date('d-m-Y', strtotime($folio->fecha_salida)) }}</td>
-								<td width="150px" style="font-size: 11px;" align="center">A / TO: {{date('d-m-Y', strtotime($folio->fecha_llegada))}}</td>
-								<td width="100px" style="font-size: 11px;" bgcolor="Silver">DIAS / DAYS</td>
-								<td width="97px" style="font-size: 11px;" align="center">{{$folio->dias}}</td>
+								<td width="200px" style="border: solid 1px; font-size: 11px;" bgcolor="Silver">PROPOSITOS / PURPOSES</td>
+								<td width="499px" align="center" style="border: solid 1px; font-size: 11px;">{{$folio->proposito}}</td>
 							</tr>
 						</table>
 					</td>
 				</tr>
 				<tr>
 					<td>
-						<table border="1" style="border-collapse: collapse;" cellpadding="0" cellspacing="0">
+						<table style="border: solid 1px; border-collapse: collapse;" cellpadding="0" cellspacing="0">
 							<tr>
-								<td width="200px" style="font-size: 10px;" bgcolor="Silver">ANTICIPO DE VIAJE / TRIP ADVANCE</td>
-								<td width="200px" style="font-size: 11px;" align="center">{{$folio->moneda}}</td>
-								<td width="200px" style="font-size: 10px;" align="CENTER" bgcolor="Silver">ANTICIPO / ADVANCE PAYMENT</td>
-								<td width="98px" style="font-size: 11px;" align="center">$ {{$folio->anticipo}}</td>
+								<td width="200px" style="border: solid 1px; font-size: 11px;" bgcolor="Silver">PERIODO / PERIOD</td>
+								<td width="150px" style="border: solid 1px; font-size: 11px;" align="center">DE / FROM: {{ date('d-m-Y', strtotime($folio->fecha_salida)) }}</td>
+								<td width="150px" style="border: solid 1px; font-size: 11px;" align="center">A / TO: {{date('d-m-Y', strtotime($folio->fecha_llegada))}}</td>
+								<td width="100px" style="border: solid 1px; font-size: 11px;" bgcolor="Silver">DIAS / DAYS</td>
+								<td width="96px" style="border: solid 1px; font-size: 11px;" align="center">{{$folio->dias}}</td>
 							</tr>
 						</table>
 					</td>
 				</tr>
 				<tr>
 					<td>
-						<table border="0" style="border-collapse: collapse;" cellpadding="0" cellspacing="0">
+						<table style="border: solid 1px; border-collapse: collapse;" cellpadding="0" cellspacing="0">
+							<tr>
+								<td width="200px" style="border: solid 1px; font-size: 10px;" bgcolor="Silver">ANTICIPO DE VIAJE / TRIP ADVANCE</td>
+								<td width="199px" style="border: solid 1px; font-size: 11px;" align="center">{{$folio->moneda}}</td>
+								<td width="200px" style="border: solid 1px; font-size: 10px;" align="CENTER" bgcolor="Silver">ANTICIPO / ADVANCE PAYMENT</td>
+								<td width="98px" style="border: solid 1px; font-size: 11px;" align="center">$ {{$folio->anticipo}}</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<table style="border-collapse: collapse;" cellpadding="0" cellspacing="0">
 							<tr>
 								<td width="700px" height="5px"> </td>
 							</tr>
@@ -305,7 +305,7 @@
 				</tr>
 				<tr>
 					<td>
-						<table border="1" style="border-collapse: collapse;" cellpadding="0" cellspacing="0">
+						<table style="border: solid 1px; border-collapse: collapse;" cellpadding="0" cellspacing="0">
 							<tr>
 								<td width="700px" height="10px" style="font-size: 8px;" align="center">REFERENCIAS / REFERENCES</td>
 							</tr>
@@ -314,14 +314,14 @@
 				</tr>
 				<tr>
 					<td>
-						<table border="1" style="border-collapse: collapse;" cellpadding="0" cellspacing="0">
+						<table style="border: solid 1px; border-collapse: collapse;" cellpadding="0" cellspacing="0">
 							<tr>
-								<td width="160px" style="font-size: 9px;" align="center" bgcolor="Silver">CONTACTO (PERSONA / COMPAÑIA)<br>CONTACT(PERSON / COMPANY)</td>
-								<td width="40px" style="font-size: 8px;" align="center" bgcolor="Silver">NOMBRE<br>NAME</td>
-								<td width="350px" style="font-size: 9px;" align="center"><br>
+								<td width="160px" style="border: solid 1px; font-size: 9px;" align="center" bgcolor="Silver">CONTACTO (PERSONA / COMPAÑIA)<br>CONTACT(PERSON / COMPANY)</td>
+								<td width="40px" style="border: solid 1px; font-size: 8px;" align="center" bgcolor="Silver">NOMBRE<br>NAME</td>
+								<td width="348px" style="border: solid 1px; font-size: 9px;" align="center"><br>
 								</td>
-								<td width="50px" style="font-size: 8px;" align="center" bgcolor="Silver">TEL. <br></td>
-								<td width="98px" style="font-size: 8px;" align="center" ><br></td>
+								<td width="50px" style="border: solid 1px; font-size: 8px;" align="center" bgcolor="Silver">TEL. <br></td>
+								<td width="98px" style="border: solid 1px; font-size: 8px;" align="center" ><br></td>
 							</tr>
 						</table>
 					</td>
@@ -332,15 +332,15 @@
 							<tr>
 								
 							@if($folio->tipo =="Nacional" ||$folio->fecha_llegada <="2019-10-03 00:00:00")
-								<th width="230px" style="font-size: 10px;" bgcolor="Silver" align="center">GASTO DE:</th>
-								<th width="230px" style="font-size: 10px;" bgcolor="Silver" align="center">PAGADO CON AMEX:</th>
-								<th width="230px" style="font-size: 10px;" bgcolor="Silver" align="center">PAGADO EN EFECTIVO:</th>
+								<th width="232px" style="border: solid 1px; font-size: 10px;" bgcolor="Silver" align="center">GASTO DE:</th>
+								<th width="233px" style="border: solid 1px; font-size: 10px;" bgcolor="Silver" align="center">PAGADO CON AMEX:</th>
+								<th width="233px" style="border: solid 1px; font-size: 10px;" bgcolor="Silver" align="center">PAGADO EN EFECTIVO:</th>
 								@else
-								<th width="180px" style="font-size: 10px;" bgcolor="Silver" align="center">GASTO DE:</th>
-								<th width="130px" style="font-size: 10px;" bgcolor="Silver" align="center">PAGADO CON AMEX:</th>
-								<th width="130px" style="font-size: 10px;" bgcolor="Silver" align="center">MONEDA:</th>
-								<th width="130px" style="font-size: 10px;" bgcolor="Silver" align="center">PAGADO EN EFECTIVO:</th>
-								<th width="130px" style="font-size: 10px;" bgcolor="Silver" align="center">PAGADO EN EFECTIVO (PESOS):</th>
+								<th width="180px" style="border: solid 1px; font-size: 10px;" bgcolor="Silver" align="center">GASTO DE:</th>
+								<th width="130px" style="border: solid 1px; font-size: 10px;" bgcolor="Silver" align="center">PAGADO CON AMEX:</th>
+								<th width="130px" style="border: solid 1px; font-size: 10px;" bgcolor="Silver" align="center">MONEDA:</th>
+								<th width="130px" style="border: solid 1px; font-size: 10px;" bgcolor="Silver" align="center">PAGADO EN EFECTIVO:</th>
+								<th width="130px" style="border: solid 1px; font-size: 10px;" bgcolor="Silver" align="center">PAGADO EN EFECTIVO (PESOS):</th>
 
 								@endif
 							</tr>
@@ -351,7 +351,7 @@
 							$efectivopesos = 0;
 							?>
 							<tr>
-								<td style="font-size: 12px;" align="center"><strong>HOTEL:</strong></td>
+								<td style="border: solid 1px; font-size: 12px;" align="center"><strong>HOTEL:</strong></td>
 								@if($folio->tipo =="Nacional" ||$folio->fecha_llegada <="2019-10-03 00:00:00")
 								@foreach($detalles as $hotel)
 
@@ -370,18 +370,18 @@
 								
 								<?php 
 								if (empty($amex)) {
-									echo "<td style='font-size: 12px;' align='center'>-</td>";
+									echo "<td style='border: solid 1px; font-size: 12px;' align='center'>-</td>";
 								}
 								else{
 
-									echo "<td style='font-size: 12px;' align='center'>".number_format($amex,2)."</td>";
+									echo "<td style='border: solid 1px; font-size: 12px;' align='center'>".number_format($amex,2)."</td>";
 								}
 
 								if (empty($efectivo)) {
-									echo "<td style='font-size: 12px;' align='center'>-</td>";
+									echo "<td style='border: solid 1px; font-size: 12px;' align='center'>-</td>";
 								}else{
 
-									echo "<td style='font-size: 12px;' align='center'>".number_format($efectivo,2)."</td>";
+									echo "<td style='border: solid 1px; font-size: 12px;' align='center'>".number_format($efectivo,2)."</td>";
 								}
 
 								$amex = 0;
@@ -421,32 +421,32 @@
 									@endforeach
 									<?php 
 									if (empty($amex)) {
-										echo "<td style='font-size: 12px;' align='center'>-</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center'>-</td>";
 									}
 									else{
 
-										echo "<td style='font-size: 12px;' align='center>".number_format($amex,2)."</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center>".number_format($amex,2)."</td>";
 									}
 
 									if (empty($moneda)) {
-										echo "<td style='font-size: 12px;' align='center'>-</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center'>-</td>";
 									}else{
 
-										echo "<td style='font-size: 12px;' align='center'>".$moneda."</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center'>".$moneda."</td>";
 									}
 									
 									if (empty($efectivo)) {
-										echo "<td style='font-size: 12px;' align='center'>-</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center'>-</td>";
 									}else{
 
-										echo "<td style='font-size: 12px;' align='center'>".number_format($efectivo,2)."</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center'>".number_format($efectivo,2)."</td>";
 									}
 
 									if (empty($efectivopesos)) {
-										echo "<td style='font-size: 12px;' align='center'>-</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center'>-</td>";
 									}else{
 
-										echo "<td style='font-size: 12px;' align='center'>".number_format($efectivopesos,2)."</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center'>".number_format($efectivopesos,2)."</td>";
 									}
 
 									$amex = 0;
@@ -457,7 +457,7 @@
 								@endif
 							</tr>
 							<tr>
-								<td style="font-size: 12px;" align="center"><strong>ESTACIONAMIENTO:</strong></td>
+								<td style="border: solid 1px; font-size: 12px;" align="center"><strong>ESTACIONAMIENTO:</strong></td>
 								@if($folio->tipo =="Nacional" ||$folio->fecha_llegada <="2019-10-03 00:00:00")
 									@foreach($detalles as $parking)
 									@if($parking->id_gasto==5 && $parking->metodoPago=="AMEX")
@@ -472,18 +472,18 @@
 									@endforeach
 									<?php 
 									if (empty($amex)) {
-										echo "<td style='font-size: 12px;' align='center'>-</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center'>-</td>";
 									}
 									else{
 
-										echo "<td style='font-size: 12px;' align='center'>".number_format($amex,2)."</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center'>".number_format($amex,2)."</td>";
 									}
 
 									if (empty($efectivo)) {
-										echo "<td style='font-size: 12px;' align='center'>-</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center'>-</td>";
 									}else{
 
-										echo "<td style='font-size: 12px;' align='center'>".number_format($efectivo,2)."</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center'>".number_format($efectivo,2)."</td>";
 									}
 
 									$amex = 0;
@@ -515,32 +515,32 @@
 									@endforeach
 									<?php 
 									if (empty($amex)) {
-										echo "<td style='font-size: 12px;' align='center'>-</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center'>-</td>";
 									}
 									else{
 
-										echo "<td style='font-size: 12px;' align='center>".number_format($amex,2)."</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center>".number_format($amex,2)."</td>";
 									}
 
 									if (empty($moneda)) {
-										echo "<td style='font-size: 12px;' align='center'>-</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center'>-</td>";
 									}else{
 
-										echo "<td style='font-size: 12px;' align='center'>".$moneda."</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center'>".$moneda."</td>";
 									}
 									
 									if (empty($efectivo)) {
-										echo "<td style='font-size: 12px;' align='center'>-</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center'>-</td>";
 									}else{
 
-										echo "<td style='font-size: 12px;' align='center'>".number_format($efectivo,2)."</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center'>".number_format($efectivo,2)."</td>";
 									}
 
 									if (empty($efectivopesos)) {
-										echo "<td style='font-size: 12px;' align='center'>-</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center'>-</td>";
 									}else{
 
-										echo "<td style='font-size: 12px;' align='center'>".number_format($efectivopesos,2)."</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center'>".number_format($efectivopesos,2)."</td>";
 									}
 
 									$amex = 0;
@@ -552,7 +552,7 @@
 							</tr>
 
 							<tr>
-								<td style="font-size: 12px;" align="center"><strong>TAXI:</strong></td>
+								<td style="border: solid 1px; font-size: 12px;" align="center"><strong>TAXI:</strong></td>
 								@if($folio->tipo =="Nacional" ||$folio->fecha_llegada <="2019-10-03 00:00:00")
 									@foreach($detalles as $taxi)
 									@if($taxi->id_gasto==3 && $taxi->metodoPago=="AMEX")
@@ -566,18 +566,18 @@
 									@endforeach
 									<?php 
 									if (empty($amex)) {
-										echo "<td style='font-size: 12px;' align='center'>-</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center'>-</td>";
 									}
 									else{
 
-										echo "<td style='font-size: 12px;' align='center'>".number_format($amex,2)."</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center'>".number_format($amex,2)."</td>";
 									}
 
 									if (empty($efectivo)) {
-										echo "<td style='font-size: 12px;' align='center'>-</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center'>-</td>";
 									}else{
 
-										echo "<td style='font-size: 12px;' align='center'>".number_format($efectivo,2)."</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center'>".number_format($efectivo,2)."</td>";
 									}
 
 									$amex = 0;
@@ -609,32 +609,32 @@
 									@endforeach
 									<?php 
 									if (empty($amex)) {
-										echo "<td style='font-size: 12px;' align='center'>-</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center'>-</td>";
 									}
 									else{
 
-										echo "<td style='font-size: 12px;' align='center>".number_format($amex,2)."</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center>".number_format($amex,2)."</td>";
 									}
 
 									if (empty($moneda)) {
-										echo "<td style='font-size: 12px;' align='center'>-</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center'>-</td>";
 									}else{
 
-										echo "<td style='font-size: 12px;' align='center'>".$moneda."</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center'>".$moneda."</td>";
 									}
 									
 									if (empty($efectivo)) {
-										echo "<td style='font-size: 12px;' align='center'>-</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center'>-</td>";
 									}else{
 
-										echo "<td style='font-size: 12px;' align='center'>".number_format($efectivo,2)."</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center'>".number_format($efectivo,2)."</td>";
 									}
 
 									if (empty($efectivopesos)) {
-										echo "<td style='font-size: 12px;' align='center'>-</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center'>-</td>";
 									}else{
 
-										echo "<td style='font-size: 12px;' align='center'>".number_format($efectivopesos,2)."</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center'>".number_format($efectivopesos,2)."</td>";
 									}
 
 									$amex = 0;
@@ -646,7 +646,7 @@
 							</tr>
 
 							<tr>
-								<td style="font-size: 12px;" align="center"><strong>RENTA DE AUTO:</strong></td>
+								<td style="border: solid 1px; font-size: 12px;" align="center"><strong>RENTA DE AUTO:</strong></td>
 								@if($folio->tipo =="Nacional" ||$folio->fecha_llegada <="2019-10-03 00:00:00")
 									@foreach($detalles as $auto)
 									@if($auto->id_gasto==6 && $auto->metodoPago=="AMEX")
@@ -660,18 +660,18 @@
 									@endforeach
 									<?php 
 									if (empty($amex)) {
-										echo "<td style='font-size: 12px;' align='center'>-</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center'>-</td>";
 									}
 									else{
 
-										echo "<td style='font-size: 12px;' align='center'>".number_format($amex,2)."</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center'>".number_format($amex,2)."</td>";
 									}
 
 									if (empty($efectivo)) {
-										echo "<td style='font-size: 12px;' align='center'>-</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center'>-</td>";
 									}else{
 
-										echo "<td style='font-size: 12px;' align='center'>".number_format($efectivo,2)."</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center'>".number_format($efectivo,2)."</td>";
 									}
 
 									$amex = 0;
@@ -703,32 +703,32 @@
 									@endforeach
 									<?php 
 									if (empty($amex)) {
-										echo "<td style='font-size: 12px;' align='center'>-</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center'>-</td>";
 									}
 									else{
 
-										echo "<td style='font-size: 12px;' align='center>".number_format($amex,2)."</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center>".number_format($amex,2)."</td>";
 									}
 
 									if (empty($moneda)) {
-										echo "<td style='font-size: 12px;' align='center'>-</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center'>-</td>";
 									}else{
 
-										echo "<td style='font-size: 12px;' align='center'>".$moneda."</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center'>".$moneda."</td>";
 									}
 									
 									if (empty($efectivo)) {
-										echo "<td style='font-size: 12px;' align='center'>-</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center'>-</td>";
 									}else{
 
-										echo "<td style='font-size: 12px;' align='center'>".number_format($efectivo,2)."</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center'>".number_format($efectivo,2)."</td>";
 									}
 
 									if (empty($efectivopesos)) {
-										echo "<td style='font-size: 12px;' align='center'>-</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center'>-</td>";
 									}else{
 
-										echo "<td style='font-size: 12px;' align='center'>".number_format($efectivopesos,2)."</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center'>".number_format($efectivopesos,2)."</td>";
 									}
 
 									$amex = 0;
@@ -740,7 +740,7 @@
 							</tr>
 
 							<tr>
-								<td style="font-size: 12px;" align="center"><strong>OTROS:</strong></td>
+								<td style="border: solid 1px; font-size: 12px;" align="center"><strong>OTROS:</strong></td>
 								@if($folio->tipo =="Nacional" ||$folio->fecha_llegada <="2019-10-03 00:00:00")
 									@foreach($detalles as $otros)
 									@if($otros->id_gasto==7 && $otros->metodoPago=="AMEX")
@@ -754,18 +754,18 @@
 									@endforeach
 									<?php 
 									if (empty($amex)) {
-										echo "<td style='font-size: 12px;' align='center'>-</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center'>-</td>";
 									}
 									else{
 
-										echo "<td style='font-size: 12px;' align='center'>".number_format($amex,2)."</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center'>".number_format($amex,2)."</td>";
 									}
 
 									if (empty($efectivo)) {
-										echo "<td style='font-size: 12px;' align='center'>-</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center'>-</td>";
 									}else{
 
-										echo "<td style='font-size: 12px;' align='center'>".number_format($efectivo,2)."</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center'>".number_format($efectivo,2)."</td>";
 									}
 
 									$amex = 0;
@@ -797,32 +797,32 @@
 									@endforeach
 									<?php 
 									if (empty($amex)) {
-										echo "<td style='font-size: 12px;' align='center'>-</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center'>-</td>";
 									}
 									else{
 
-										echo "<td style='font-size: 12px;' align='center>".number_format($amex,2)."</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center>".number_format($amex,2)."</td>";
 									}
 
 									if (empty($moneda)) {
-										echo "<td style='font-size: 12px;' align='center'>-</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center'>-</td>";
 									}else{
 
-										echo "<td style='font-size: 12px;' align='center'>".$moneda."</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center'>".$moneda."</td>";
 									}
 									
 									if (empty($efectivo)) {
-										echo "<td style='font-size: 12px;' align='center'>-</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center'>-</td>";
 									}else{
 
-										echo "<td style='font-size: 12px;' align='center'>".number_format($efectivo,2)."</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center'>".number_format($efectivo,2)."</td>";
 									}
 
 									if (empty($efectivopesos)) {
-										echo "<td style='font-size: 12px;' align='center'>-</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center'>-</td>";
 									}else{
 
-										echo "<td style='font-size: 12px;' align='center'>".number_format($efectivopesos,2)."</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center'>".number_format($efectivopesos,2)."</td>";
 									}
 
 									$amex = 0;
@@ -834,7 +834,7 @@
 							</tr>
 
 							<tr>
-								<td style="font-size: 12px;" align="center"><strong>VIATICO:</strong></td>
+								<td style="border: solid 1px; font-size: 12px;" align="center"><strong>VIATICO:</strong></td>
 								@if($folio->tipo =="Nacional" ||$folio->fecha_llegada <="2019-10-03 00:00:00")
 									@foreach($detalles as $viatico)
 									@if($viatico->id_gasto==1 && $viatico->metodoPago=="AMEX")
@@ -848,18 +848,18 @@
 									@endforeach
 									<?php 
 									if (empty($amex)) {
-										echo "<td style='font-size: 12px;' align='center'>-</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center'>-</td>";
 									}
 									else{
 
-										echo "<td style='font-size: 12px;' align='center'>".number_format($amex,2)."</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center'>".number_format($amex,2)."</td>";
 									}
 
 									if (empty($efectivo)) {
-										echo "<td style='font-size: 12px;' align='center'>-</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center'>-</td>";
 									}else{
 
-										echo "<td style='font-size: 12px;' align='center'>".number_format($efectivo,2)."</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center'>".number_format($efectivo,2)."</td>";
 									}
 									$amex = 0;
 									$efectivo = 0;
@@ -891,32 +891,32 @@
                                     
 									<?php 
 									if (empty($amex)) {
-										echo "<td style='font-size: 12px;' align='center'>-</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center'>-</td>";
 									}
 									else{
 
-										echo "<td style='font-size: 12px;' align='center>".number_format($amex,2)."</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center>".number_format($amex,2)."</td>";
 									}
 
 									if (empty($moneda)) {
-										echo "<td style='font-size: 12px;' align='center'>-</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center'>-</td>";
 									}else{
 
-										echo "<td style='font-size: 12px;' align='center'>".$moneda."</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center'>".$moneda."</td>";
 									}
 									
 									if (empty($efectivo)) {
-										echo "<td style='font-size: 12px;' align='center'>-</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center'>-</td>";
 									}else{
 
-										echo "<td style='font-size: 12px;' align='center'>".number_format($efectivo,2)."</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center'>".number_format($efectivo,2)."</td>";
 									}
 
 									if (empty($efectivopesos)) {
-										echo "<td style='font-size: 12px;' align='center'>-</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center'>-</td>";
 									}else{
 
-										echo "<td style='font-size: 12px;' align='center'>".number_format($efectivopesos,2)."</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center'>".number_format($efectivopesos,2)."</td>";
 									}
 									$amex = 0;
 									$efectivo = 0;
@@ -927,7 +927,7 @@
 							</tr>
 
 							<tr>
-								<td style="font-size: 12px;" align="center"><strong>DEVOLUCION:</strong></td>
+								<td style="border: solid 1px; font-size: 12px;" align="center"><strong>DEVOLUCION:</strong></td>
 								@if($folio->tipo =="Nacional" ||$folio->fecha_llegada <="2019-10-03 00:00:00")
 									@foreach($detalles as $devolucion)
 									@if($devolucion->id_gasto==8 && $devolucion->metodoPago=="AMEX")
@@ -941,18 +941,18 @@
 									@endforeach
 									<?php 
 									if (empty($amex)) {
-										echo "<td style='font-size: 12px;' align='center'>-</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center'>-</td>";
 									}
 									else{
 
-										echo "<td style='font-size: 12px;' align='center'>".number_format($amex,2)."</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center'>".number_format($amex,2)."</td>";
 									}
 
 									if (empty($efectivo)) {
-										echo "<td style='font-size: 12px;' align='center'>-</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center'>-</td>";
 									}else{
 
-										echo "<td style='font-size: 12px;' align='center'>".number_format($efectivo,2)."</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center'>".number_format($efectivo,2)."</td>";
 									}
 									?>
 								@else
@@ -979,38 +979,38 @@
 									@endforeach
 									<?php 
 									if (empty($amex)) {
-										echo "<td style='font-size: 12px;' align='center'>-</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center'>-</td>";
 									}
 									else{
 
-										echo "<td style='font-size: 12px;' align='center>".number_format($amex,2)."</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center>".number_format($amex,2)."</td>";
 									}
 
 									if (empty($moneda)) {
-										echo "<td style='font-size: 12px;' align='center'>-</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center'>-</td>";
 									}else{
 
-										echo "<td style='font-size: 12px;' align='center'>".$moneda."</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center'>".$moneda."</td>";
 									}
 									
 									if (empty($efectivo)) {
-										echo "<td style='font-size: 12px;' align='center'>-</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center'>-</td>";
 									}else{
 
-										echo "<td style='font-size: 12px;' align='center'>".number_format($efectivo,2)."</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center'>".number_format($efectivo,2)."</td>";
 									}
 
 									if (empty($efectivopesos)) {
-										echo "<td style='font-size: 12px;' align='center'>-</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center'>-</td>";
 									}else{
 
-										echo "<td style='font-size: 12px;' align='center'>".number_format($efectivopesos,2)."</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center'>".number_format($efectivopesos,2)."</td>";
 									}
 									?>
 								@endif
 							</tr>
 							<tr>
-								<td style="font-size: 12px;" align="center"><strong>VUELO:</strong></td>
+								<td style="border: solid 1px; font-size: 12px;" align="center"><strong>VUELO:</strong></td>
 								@if($folio->tipo =="Nacional" ||$folio->fecha_llegada <="2019-10-03 00:00:00")
 									@foreach($detalles as $vuelo)
 									@if($vuelo->id_gasto==9 && $vuelo->metodoPago=="AMEX")
@@ -1020,14 +1020,14 @@
 									@endforeach
 									<?php 
 									if (empty($amex)) {
-										echo "<td style='font-size: 12px;' align='center'>-</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center'>-</td>";
 									}
 									else{
 
-										echo "<td style='font-size: 12px;' align='center'>".number_format($amex,2)."</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center'>".number_format($amex,2)."</td>";
 									}
 
-									echo "<td style='font-size: 12px;' align='center'>-</td>";
+									echo "<td style='border: solid 1px; font-size: 12px;' align='center'>-</td>";
 									?>
 								@else
 									@foreach($detalle as $vuelo)
@@ -1048,21 +1048,21 @@
 									@endforeach
 									<?php 
 										if (empty($amex)) {
-											echo "<td style='font-size: 12px;' align='center'>-</td>";
+											echo "<td style='border: solid 1px; font-size: 12px;' align='center'>-</td>";
 										}
 										else{
 
-											echo "<td style='font-size: 12px;' align='center>".number_format($amex,2)."</td>";
+											echo "<td style='border: solid 1px; font-size: 12px;' align='center>".number_format($amex,2)."</td>";
 										}
 
 										if (empty($moneda)) {
-											echo "<td style='font-size: 12px;' align='center'>-</td>";
+											echo "<td style='border: solid 1px; font-size: 12px;' align='center'>-</td>";
 										}else{
 
-											echo "<td style='font-size: 12px;' align='center'>".$moneda."</td>";
+											echo "<td style='border: solid 1px; font-size: 12px;' align='center'>".$moneda."</td>";
 										}
-										echo "<td style='font-size: 12px;' align='center'>-</td>";
-										echo "<td style='font-size: 12px;' align='center'>-</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center'>-</td>";
+										echo "<td style='border: solid 1px; font-size: 12px;' align='center'>-</td>";
 									?>
 								@endif
 							</tr>
@@ -1071,36 +1071,36 @@
 				</tr>
 				<tr>
 					<td>
-						<table border="" style="border-collapse: collapse;" cellpadding="0" cellspacing="0">
+						<table style="border-collapse: collapse;" cellpadding="0" cellspacing="0">
 						@if($folio->tipo =="Nacional" ||$folio->fecha_llegada <="2019-10-03 00:00:00")
 							<tr>
-								<td width="464px" style="font-size: 10px;" align="right">TOTAL GASTO &nbsp;</th></td>
-								<td width="230px" style="font-size: 12px; border: solid 1px; " align="center">{{$folio->all_total}}</th></td>
+								<td width="464px" style="border: solid 1px; font-size: 10px;" align="right">TOTAL GASTO &nbsp;</th></td>
+								<td width="235px" style="border: solid 1px; font-size: 12px; border: solid 1px; " align="center">{{$folio->all_total}}</th></td>
 							</tr>
 							<tr>
-								<td width="464px" style="font-size: 10px;" align="right">ANTICIPO &nbsp;</th></td>
-								<td width="230px" style="font-size: 12px; border: solid 1px; " align="center">{{$folio->anticipo}}</th></td>
+								<td width="464px" style="border: solid 1px; font-size: 10px;" align="right">ANTICIPO &nbsp;</th></td>
+								<td width="235px" style="border: solid 1px; font-size: 12px; border: solid 1px; " align="center">{{$folio->anticipo}}</th></td>
 							</tr>
 							<tr>
-								<td width="464px" style="font-size: 10px;" align="right">DIF A CARGO (FAVOR) &nbsp;</th></td>
-								<td width="230px" style="font-size: 12px; border: solid 1px; " align="center">{{number_format(abs($folio->anticipo-$folio->all_total), 2)}}</th></td>
+								<td width="464px" style="border: solid 1px; font-size: 10px;" align="right">DIF A CARGO (FAVOR) &nbsp;</th></td>
+								<td width="235px" style="border: solid 1px; font-size: 12px; border: solid 1px; " align="center">{{number_format(abs($folio->anticipo-$folio->all_total), 2)}}</th></td>
 							</tr>
 						@else
 							<tr>
-								<td width="582px" style="font-size: 10px;" align="right">TOTAL GASTO &nbsp;</th></td>
-								<td width="140px" style="font-size: 12px; border: solid 1px; " align="center">{{$folio->all_total}}</th></td>
+								<td width="582px" style="border: solid 1px; font-size: 10px;" align="right">TOTAL GASTO &nbsp;</th></td>
+								<td width="235px" style="border: solid 1px; font-size: 12px; border: solid 1px; " align="center">{{$folio->all_total}}</th></td>
 							</tr>
 							<tr>
-								<td width="582px" style="font-size: 10px;" align="right">ANTICIPO &nbsp;</th></td>
-								<td width="140px" style="font-size: 12px; border: solid 1px; " align="center">{{$folio->anticipo}}</th></td>
+								<td width="582px" style="border: solid 1px; font-size: 10px;" align="right">ANTICIPO &nbsp;</th></td>
+								<td width="235px" style="border: solid 1px; font-size: 12px; border: solid 1px; " align="center">{{$folio->anticipo}}</th></td>
 							</tr>
 							<tr>
 							@if($folio->tipo =="Nacional" ||$folio->fecha_llegada <"2019-10-08 00:00:00" ||$folio->moneda=="Pesos"||  $folio->anticipo == "0.00")    
-								<td width="582px" style="font-size: 10px;" align="right">DIF A CARGO (FAVOR) &nbsp;</th></td>
-								<td width="140px" style="font-size: 12px; border: solid 1px; " align="center">{{number_format(abs($folio->anticipo-$folio->all_total), 2)}}</th></td>
+								<td width="582px" style="border: solid 1px; font-size: 10px;" align="right">DIF A CARGO (FAVOR) &nbsp;</th></td>
+								<td width="235px" style="border: solid 1px; font-size: 12px; border: solid 1px; " align="center">{{number_format(abs($folio->anticipo-$folio->all_total), 2)}}</th></td>
 							@else
-							<td width="582px" style="font-size: 10px;" align="right">DIF A CARGO (FAVOR) &nbsp;</th></td>
-								<td width="140px" style="font-size: 12px; border: solid 1px; " align="center">{{number_format(abs($folioi->montopesos-$folioi->all_total), 2)}}</th></td>
+							<td width="582px" style="border: solid 1px; font-size: 10px;" align="right">DIF A CARGO (FAVOR) &nbsp;</th></td>
+								<td width="235px" style="border: solid 1px; font-size: 12px; border: solid 1px; " align="center">{{number_format(abs($folioi->montopesos-$folioi->all_total), 2)}}</th></td>
 							@endif
 							</tr>
 						@endif

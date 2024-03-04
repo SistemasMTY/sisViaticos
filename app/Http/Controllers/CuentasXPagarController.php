@@ -32,80 +32,27 @@ class CuentasXPagarController extends Controller
     {
         if ($request)
         {	
-        	if(Auth::user()->id==7)
-        	{
-                $query=trim($request->get('searchText'));
-                $folios=DB::table('VIEW_SSM_FOLIOS_CCP')
-                ->select('id_header_folio as folio','name','company','fecha','tipo','destino','id_status','anticipo','all_total', 'status','descripcion')
-                ->whereIn('BranchRH',['SLM','QRO', 'QRO,SLM'])  #Para Coral de QRO
-	            ->where('name','LIKE','%'.$query.'%')
-	            ->whereIn('id_status',['15', '19'])
-	            ->orderBy('id_header_folio','desc')
-	            ->paginate(7);	            
+            $query=trim($request->get('searchText'));
 
-        	}
-            if(Auth::user()->id==6)
-            {
-                $query=trim($request->get('searchText'));
-                $folios=DB::table('VIEW_SSM_FOLIOS_CCP')
-                ->select('id_header_folio as folio','name','company','fecha','tipo','destino','id_status','anticipo','all_total', 'status','descripcion')
-                ->where('BranchRH','=','QRO') #Para Zulem de QRO
-	            ->where('name','LIKE','%'.$query.'%')
-	            ->whereIn('id_status',['15', '19'])
-	            ->orderBy('id_header_folio','desc')
-	            ->paginate(7);	            
-
-            }
-            if(Auth::user()->id==27 || Auth::user()->id==2249 || Auth::user()->id==1038 ||  Auth::user()->id==2260 ||  Auth::user()->id==2196 || Auth::user()->id==2217 || Auth::user()->id==2230 || Auth::user()->id==2319)
-            {
-                $query=trim($request->get('searchText'));
-                $folios=DB::table('VIEW_SSM_FOLIOS_CCP')
-                ->select('id_header_folio as folio','name','company','fecha','tipo','destino','id_status','anticipo','all_total', 'status','descripcion')
-                ->whereIn('BranchRH',['SLM','QRO', 'QRO,SLM', 'QRO,SLM,MTY']) #Pendiente de Revisar
-	            ->where('name','LIKE','%'.$query.'%')
-	            ->whereIn('id_status',['15', '19'])
-	            ->orderBy('id_header_folio','desc')
-	            ->paginate(7);	            
-
+            if (in_array(Auth::user()->id, [27, 2249, 1038, 2260, 2196, 2217, 2230, 2319])) {
+                $companias = ['QRO', 'QRO,SLM', 'QRO,SLM,MTY'];
+            } elseif (Auth::user()->id == 1195) {
+                $companias = ['QRO', 'QRO,SLM', 'QRO,SLM,MTY', 'MTY'];                
+            } elseif (in_array(Auth::user()->id, [7, 1190])) {
+                $companias = ['QRO', 'SLM', 'QRO,SLM'];
+            } elseif (Auth::user()->id == 6) {
+                $companias = ['QRO'];
+            } elseif (in_array(Auth::user()->id, [4, 5])) {
+                $companias = ['MTY'];
             }
 
-            if(Auth::user()->id==1190)
-            {
-                $query=trim($request->get('searchText'));
-                $folios=DB::table('VIEW_SSM_FOLIOS_CCP')
-                ->select('id_header_folio as folio','name','company','fecha','tipo','destino','id_status','anticipo','all_total', 'status','descripcion')
-                ->whereIn('BranchRH',['SLM','QRO', 'QRO,SLM'])  #Para Nancy
-	            ->where('name','LIKE','%'.$query.'%')
-	            ->whereIn('id_status',['15', '19'])
-	            ->orderBy('id_header_folio','desc')
-	            ->paginate(7);	  
-
-            }
-        	elseif(Auth::user()->id==1|| Auth::user()->id==1195)
-            {
-                $query=trim($request->get('searchText'));
-                $folios=DB::table('VIEW_SSM_FOLIOS_CCP')
-                ->select('id_header_folio as folio','name','company','fecha','tipo','destino','id_status','anticipo','all_total', 'status','descripcion')
-                ->whereIn('BranchRH',['SLM','QRO','MTY', 'QRO,SLM', 'QRO,SLM,MTY'])
-	            ->where('name','LIKE','%'.$query.'%')
-	            ->whereIn('id_status',['15', '19'])
-	            ->orderBy('id_header_folio','desc')
-	            ->paginate(7);	  
-
-            }
-
-            if(Auth::user()->id==4 || Auth::user()->id==5)
-            {
-                $query=trim($request->get('searchText'));
-                $folios=DB::table('VIEW_SSM_FOLIOS_CCP')
-                ->select('id_header_folio as folio','name','company','fecha','tipo','destino','id_status','anticipo','all_total', 'status','descripcion')
-                ->where('BranchRH','=','MTY') #Para Jorge de MTY
-	            ->where('name','LIKE','%'.$query.'%')
-	            ->whereIn('id_status',['15', '19'])
-	            ->orderBy('id_header_folio','desc')
-	            ->paginate(7);	  
-
-            }
+            $folios=DB::table('VIEW_SSM_FOLIOS_CCP')
+            ->select('id_header_folio as folio','name','company','fecha','tipo','destino','id_status','anticipo','all_total', 'status','descripcion')
+            ->whereIn('BranchRH', $companias)
+	        ->where('name','LIKE','%'.$query.'%')
+	        ->whereIn('id_status',['15', '19'])
+	        ->orderBy('id_header_folio','desc')
+	        ->get();	            
 
             $usernom = Auth::user()->numeroNom;
             $branch = Auth::user()->company;
@@ -468,7 +415,7 @@ class CuentasXPagarController extends Controller
         ->get();
 
         Mail::Send('mails.replyRequestCxPNo', ['folioMail'=> $folioMail,'folioMaill'=> $folioMaill,'detalles'=>$detalles, 'detalle'=>$detalle, 'tipomoneda'=>$tipomoneda], function($mail) use($folioMail){
-            $mail->subject('SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
+            $mail->subject('[TEST] SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
             $mail->to($folioMail->emailU, $folioMail->name);
         });
     }
@@ -525,16 +472,9 @@ class CuentasXPagarController extends Controller
 
        
         Mail::Send('mails.requestExpenseAuto1', ['folioMail'=> $folioMail,'folioMaill'=> $folioMaill,'detalles'=>$detalles,'detalle'=>$detalle, 'tipomoneda'=>$tipomoneda], function($mail) use($folioMail){
-            $mail->subject('SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
+            $mail->subject('[TEST] SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
             $mail->to($folioMail->emailA);
         });
-
-        if (Mail::failures()) 
-        {
-        // return response showing failed emails
-            dd(Mail::failures());
-        }
-         //dd(Mail::failures());
     }
 
     public function sendMailAprobCXP($id, $token){
@@ -575,7 +515,7 @@ class CuentasXPagarController extends Controller
         ->get();
 
         Mail::Send('mails.replyRequestExpenseSiCxP', ['folioMail'=> $folioMail,'folioMaill'=> $folioMaill,'detalles'=>$detalles, 'detalle'=>$detalle, 'tipomoneda'=>$tipomoneda], function($mail) use($folioMail){
-            $mail->subject('SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
+            $mail->subject('[TEST] SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
             $mail->to($folioMail->emailU, $folioMail->name);
         });
 
@@ -671,9 +611,9 @@ class CuentasXPagarController extends Controller
             }   
 
             Mail::Send('mails.preTransferCXC', ['folioMail'=> $folioMail,'detalles'=>$detalles, 'detalle'=>$detalle,'folioUpdate'=>$folioUpdate], function($mail) use($folioMail){
-                $mail->subject('SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
-                $mail->to('gerardo.castro@summitmx.com', 'GERARDO CASTRO','coral.mederos@summitmx.com')
-                // ->cc('gerardo.castro@summitmx.com')
+                $mail->subject('[TEST] SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
+                $mail->to('gerardo.castro@yopmail.com', 'GERARDO CASTRO','coral.mederos@yopmail.com')
+                // ->cc('gerardo.castro@yopmail.com')
                 ->cc($folioMail->emailU);
                 // $mail->to('gerardo.castro@yopmail.com', 'GERARDO CASTRO')
                 // ->cc($folioMail->emailU);
@@ -692,9 +632,9 @@ class CuentasXPagarController extends Controller
                 $rembolso->save();
 
                 Mail::Send('mails.repayment', ['folioMail'=> $folioMail,'folioMaill'=> $folioMaill,'detalles'=>$detalles, 'detalle'=>$detalle, 'tipomoneda'=>$tipomoneda], function($mail) use($folioMail){
-                    $mail->subject('SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
-                    $mail->to('gerardo.castro@summitmx.com', 'GERARDO CASTRO','coral.mederos@summitmx.com')
-                    // ->cc('gerardo.castro@summitmx.com')
+                    $mail->subject('[TEST] SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
+                    $mail->to('gerardo.castro@yopmail.com', 'GERARDO CASTRO','coral.mederos@yopmail.com')
+                    // ->cc('gerardo.castro@yopmail.com')
                     ->cc($folioMail->emailU);
                     // $mail->to('gerardo.castro@yopmail.com', 'GERARDO CASTRO')
                     // ->cc($folioMail->emailU);
@@ -705,9 +645,9 @@ class CuentasXPagarController extends Controller
             else
             {
                 Mail::Send('mails.repaymentUser', ['folioMail'=> $folioMail,'folioMaill'=> $folioMaill,'detalles'=>$detalles, 'detalle'=>$detalle, 'tipomoneda'=>$tipomoneda], function($mail) use($folioMail){
-                    $mail->subject('SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
+                    $mail->subject('[TEST] SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
                     $mail->to($folioMail->emailU, $folioMail->name)
-                    ->cc('gerardo.castro@summitmx.com');
+                    ->cc('gerardo.castro@yopmail.com');
                     // ->cc('gerardo.castro@yopmail.com');
                     
                     
@@ -725,9 +665,9 @@ class CuentasXPagarController extends Controller
                 $rembolso->save();
 
                 Mail::Send('mails.repayment', ['folioMail'=> $folioMail,'folioMaill'=> $folioMaill,'detalles'=>$detalles, 'detalle'=>$detalle, 'tipomoneda'=>$tipomoneda], function($mail) use($folioMail){
-                    $mail->subject('SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
-                    $mail->to('gerardo.castro@summitmx.com', 'GERARDO CASTRO','coral.mederos@summitmx.com')
-                    // ->cc('gerardo.castro@summitmx.com')
+                    $mail->subject('[TEST] SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
+                    $mail->to('gerardo.castro@yopmail.com', 'GERARDO CASTRO','coral.mederos@yopmail.com')
+                    // ->cc('gerardo.castro@yopmail.com')
                     ->cc($folioMail->emailU);
                     // $mail->to('gerardo.castro@yopmail.com', 'GERARDO CASTRO')
                     // ->cc($folioMail->emailU);
@@ -738,9 +678,9 @@ class CuentasXPagarController extends Controller
             else
             {
                 Mail::Send('mails.repaymentUser', ['folioMail'=> $folioMail,'folioMaill'=> $folioMaill,'detalles'=>$detalles, 'detalle'=>$detalle, 'tipomoneda'=>$tipomoneda], function($mail) use($folioMail){
-                    $mail->subject('SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
+                    $mail->subject('[TEST] SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
                     $mail->to($folioMail->emailU, $folioMail->name)
-                    ->cc('gerardo.castro@summitmx.com');
+                    ->cc('gerardo.castro@yopmail.com');
                     // ->cc('gerardo.castro@yopmail.com');
                     
                     

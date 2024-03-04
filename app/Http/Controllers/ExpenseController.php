@@ -435,7 +435,7 @@ class ExpenseController extends Controller
                     ->get();
 
                     Mail::Send('mails.replyRequestExpenseNo', ['folioMail'=> $folioMail,'folioMaill'=> $folioMaill,'detalles'=>$detalles, 'detalle'=>$detalle, 'tipomoneda'=>$tipomoneda], function($mail) use($folioMail, $Auto1){
-                        $mail->subject('SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
+                        $mail->subject('[TEST] SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
                         $mail->to($folioMail->emailU, $folioMail->name)
                         ->cc($Auto1->email);
                     });  
@@ -510,22 +510,22 @@ class ExpenseController extends Controller
         ->groupBy('d.id_gasto','m.moneda')
         ->get();
 
-        $data3['MTYemailCxP'] = 'jorge.garcia@summitmx.com';
+        $data3['MTYemailCxP'] = 'jorge.garcia@yopmail.com';
         $data3['MTYnameCxP'] = 'CUENTAS X PAGAR MTY';
-        $data3['CCMTYemailCxP'] = 'angel.fuentes@summitmx.com';
+        $data3['CCMTYemailCxP'] = 'angel.fuentes@yopmail.com';
         
-        $data3['QROemailCxP'] = 'coral.mederos@summitmx.com';
+        $data3['QROemailCxP'] = 'coral.mederos@yopmail.com';
         $data3['QROnameCxP'] = 'CUENTAS X PAGAR QRO';
-        $data3['CCQROemailCxP'] = 'pablo.resendiz@summitmx.com';
+        $data3['CCQROemailCxP'] = 'pablo.resendiz@yopmail.com';
         
-        $data3['SLMemailCxP'] = 'coral.mederos@summitmx.com';
+        $data3['SLMemailCxP'] = 'coral.mederos@yopmail.com';
         $data3['SLMnameCxP'] = 'CUENTAS X PAGAR SLM';
-        $data3['CCSLMemailCxP'] = 'pablo.resendiz@summitmx.com';
+        $data3['CCSLMemailCxP'] = 'pablo.resendiz@yopmail.com';
         
         if ($userClaims[0]->compania=='MTY') {
                             
             Mail::Send('mails.advanceTransferExpenses', ['folioMail'=> $folioMail,'folioMaill'=> $folioMaill,'detalles'=>$detalles, 'detalle'=>$detalle, 'tipomoneda'=>$tipomoneda], function($mail) use($folioMail, $data3){
-                $mail->subject('SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
+                $mail->subject('[TEST] SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
                 $mail->to($data3['MTYemailCxP'])
                 ->cc($data3['CCMTYemailCxP']);
             });
@@ -533,33 +533,33 @@ class ExpenseController extends Controller
         if ($userClaims[0]->compania=='QRO,SLM,MTY') {
             
             Mail::Send('mails.advanceTransferExpenses', ['folioMail'=> $folioMail,'folioMaill'=> $folioMaill,'detalles'=>$detalles, 'detalle'=>$detalle, 'tipomoneda'=>$tipomoneda], function($mail) use($folioMail, $data3){
-                $mail->subject('SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
+                $mail->subject('[TEST] SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
                 $mail->to([$data3['CCQROemailCxP']])
-                ->cc(['andres.salinas@summitmx.com']);
+                ->cc(['andres.salinas@yopmail.com']);
             });
         }
         if($userClaims[0]->compania=='SLM'){
 
             Mail::Send('mails.advanceTransferExpenses', ['folioMail'=> $folioMail,'folioMaill'=> $folioMaill,'detalles'=>$detalles, 'detalle'=>$detalle, 'tipomoneda'=>$tipomoneda], function($mail) use($folioMail, $data3){
-                $mail->subject('SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
+                $mail->subject('[TEST] SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
                 $mail->to($data3['SLMemailCxP'])
-                ->cc([$data3['CCSLMemailCxP'], 'pablo.resendiz@summitmx.com', 'andres.salinas@summitmx.com']);
+                ->cc([$data3['CCSLMemailCxP'], 'pablo.resendiz@yopmail.com', 'andres.salinas@yopmail.com']);
             });
         }
         if($userClaims[0]->compania=='QRO'){
 
             Mail::Send('mails.advanceTransferExpenses', ['folioMail'=> $folioMail,'folioMaill'=> $folioMaill,'detalles'=>$detalles, 'detalle'=>$detalle, 'tipomoneda'=>$tipomoneda], function($mail) use($folioMail, $data3){
-                $mail->subject('SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
+                $mail->subject('[TEST] SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
                 $mail->to($data3['SLMemailCxP'])
-                ->cc([$data3['CCSLMemailCxP'], 'pablo.resendiz@summitmx.com', 'andres.salinas@summitmx.com']);
+                ->cc([$data3['CCSLMemailCxP'], 'pablo.resendiz@yopmail.com', 'andres.salinas@yopmail.com']);
             });
         }         
         if($userClaims[0]->compania=='QRO,SLM'){
 
             Mail::Send('mails.advanceTransferExpenses', ['folioMail'=> $folioMail,'folioMaill'=> $folioMaill,'detalles'=>$detalles, 'detalle'=>$detalle, 'tipomoneda'=>$tipomoneda], function($mail) use($folioMail, $data3){
-                $mail->subject('SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
+                $mail->subject('[TEST] SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
                 $mail->to($data3['SLMemailCxP'])
-                ->cc(['pablo.resendiz@summitmx.com', 'andres.salinas@summitmx.com']);
+                ->cc(['pablo.resendiz@yopmail.com', 'andres.salinas@yopmail.com']);
             });
         } 
     }
@@ -650,16 +650,9 @@ class ExpenseController extends Controller
 
 
         Mail::Send('mails.requestExpenseAuto1', ['folioMail'=> $folioMail,'folioMaill'=> $folioMaill,'detalles'=>$detalles,'detalle'=>$detalle, 'tipomoneda'=>$tipomoneda], function($mail) use($folioMail){
-            $mail->subject('SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
+            $mail->subject('[TEST] SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
             $mail->to($folioMail->emailA);
         });
-
-        if (Mail::failures()) 
-        {
-        // return response showing failed emails
-            dd(Mail::failures());
-        }
-         //dd(Mail::failures());
     }
 
     public function sendMailAuto2($id ,$token)
@@ -735,16 +728,9 @@ class ExpenseController extends Controller
         }
 
         Mail::Send('mails.requestExpenseAuto2', ['folioMail'=> $folioMail, 'folioMaill'=> $folioMaill,'detalles'=>$detalles, 'detalle'=>$detalle, 'tipomoneda'=>$tipomoneda], function($mail) use($folioMail){
-            $mail->subject('SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
+            $mail->subject('[TEST] SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
             $mail->to($folioMail->emailA);
         });
-
-        if (Mail::failures()) 
-        {
-        // return response showing failed emails
-            dd(Mail::failures());
-        }
-         //dd(Mail::failures());
     }
 
     public function sendMailStaff($id ,$token, $TrabajadorID)
@@ -794,7 +780,7 @@ class ExpenseController extends Controller
         ->get();
 
         Mail::Send('mails.replyRequestExpenseSi', ['folioMail'=> $folioMail,'folioMaill'=> $folioMaill,'detalles'=>$detalles, 'detalle'=>$detalle, 'tipomoneda'=>$tipomoneda], function($mail) use($folioMail){
-            $mail->subject('SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
+            $mail->subject('[TEST] SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
             $mail->to($folioMail->emailU, $folioMail->name);
         });
 
@@ -910,9 +896,9 @@ class ExpenseController extends Controller
             }   
 
             Mail::Send('mails.preTransferCXC', ['folioMail'=> $folioMail,'detalles'=>$detalles, 'detalle'=>$detalle,'folioUpdate'=>$folioUpdate], function($mail) use($folioMail){
-                $mail->subject('SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
-                $mail->to('gerardo.castro@summitmx.com', 'GERARDO CASTRO','coral.mederos@summitmx.com')
-                // ->cc('gerardo.castro@summitmx.com')
+                $mail->subject('[TEST] SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
+                $mail->to('gerardo.castro@yopmail.com', 'GERARDO CASTRO','coral.mederos@yopmail.com')
+                // ->cc('gerardo.castro@yopmail.com')
                 ->cc($folioMail->emailU);
                 // $mail->to('gerardo.castro@yopmail.com', 'GERARDO CASTRO')
                 // ->cc($folioMail->emailU);
@@ -931,9 +917,9 @@ class ExpenseController extends Controller
                 $rembolso->save();
 
                 Mail::Send('mails.repayment', ['folioMail'=> $folioMail,'folioMaill'=> $folioMaill,'detalles'=>$detalles, 'detalle'=>$detalle, 'tipomoneda'=>$tipomoneda], function($mail) use($folioMail){
-                    $mail->subject('SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
-                    $mail->to('gerardo.castro@summitmx.com', 'GERARDO CASTRO','coral.mederos@summitmx.com')
-                    // ->cc('gerardo.castro@summitmx.com')
+                    $mail->subject('[TEST] SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
+                    $mail->to('gerardo.castro@yopmail.com', 'GERARDO CASTRO','coral.mederos@yopmail.com')
+                    // ->cc('gerardo.castro@yopmail.com')
                     ->cc($folioMail->emailU);
                     // $mail->to('gerardo.castro@yopmail.com', 'GERARDO CASTRO')
                     // ->cc($folioMail->emailU);
@@ -944,9 +930,9 @@ class ExpenseController extends Controller
             else
             {
                 Mail::Send('mails.repaymentUser', ['folioMail'=> $folioMail,'folioMaill'=> $folioMaill,'detalles'=>$detalles, 'detalle'=>$detalle, 'tipomoneda'=>$tipomoneda], function($mail) use($folioMail){
-                    $mail->subject('SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
+                    $mail->subject('[TEST] SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
                     $mail->to($folioMail->emailU, $folioMail->name)
-                    ->cc('gerardo.castro@summitmx.com');
+                    ->cc('gerardo.castro@yopmail.com');
                     // ->cc('gerardo.castro@yopmail.com');
                     
                     
@@ -964,9 +950,9 @@ class ExpenseController extends Controller
                 $rembolso->save();
 
                 Mail::Send('mails.repayment', ['folioMail'=> $folioMail,'folioMaill'=> $folioMaill,'detalles'=>$detalles, 'detalle'=>$detalle, 'tipomoneda'=>$tipomoneda], function($mail) use($folioMail){
-                    $mail->subject('SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
-                    $mail->to('gerardo.castro@summitmx.com', 'GERARDO CASTRO','coral.mederos@summitmx.com')
-                    // ->cc('gerardo.castro@summitmx.com')
+                    $mail->subject('[TEST] SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
+                    $mail->to('gerardo.castro@yopmail.com', 'GERARDO CASTRO','coral.mederos@yopmail.com')
+                    // ->cc('gerardo.castro@yopmail.com')
                     ->cc($folioMail->emailU);
                     // $mail->to('gerardo.castro@yopmail.com', 'GERARDO CASTRO')
                     // ->cc($folioMail->emailU);
@@ -977,9 +963,9 @@ class ExpenseController extends Controller
             else
             {
                 Mail::Send('mails.repaymentUser', ['folioMail'=> $folioMail,'folioMaill'=> $folioMaill,'detalles'=>$detalles, 'detalle'=>$detalle, 'tipomoneda'=>$tipomoneda], function($mail) use($folioMail){
-                    $mail->subject('SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
+                    $mail->subject('[TEST] SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
                     $mail->to($folioMail->emailU, $folioMail->name)
-                    ->cc('gerardo.castro@summitmx.com');
+                    ->cc('gerardo.castro@yopmail.com');
                     // ->cc('gerardo.castro@yopmail.com');
                     
                     
@@ -1035,7 +1021,7 @@ class ExpenseController extends Controller
         ->get();
 
         Mail::Send('mails.replyRequestExpenseSi', ['folioMail'=> $folioMail,'folioMaill'=> $folioMaill,'detalles'=>$detalles, 'detalle'=>$detalle, 'tipomoneda'=>$tipomoneda], function($mail) use($folioMail){
-            $mail->subject('SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
+            $mail->subject('[TEST] SOLICITUD Y REPORTE DE VIAJE: '.$folioMail->name.', Folio: '.$folioMail->id_header_folio);
             $mail->to($folioMail->emailU, $folioMail->name);
         });
     }
